@@ -43,6 +43,18 @@ h3 {
   text-align: center;
 }
 
+.container2 {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+  flex-flow: column;
+  padding: 10px 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 60px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -149,6 +161,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+/*   border-right: none; */
 }
 
 .btn svg {
@@ -189,6 +202,44 @@ h3 {
   border-color: #000 transparent #555 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
+}
+
+.btn-group button {
+  /* background-color: #04AA6D; */ /* Green background */
+  /* border: 1px solid green; */ /* Green border */
+ /*  color: white;  *//* White text */
+  /* padding: 10px 24px; */ /* Some padding */
+ /*  cursor: pointer;  *//* Pointer/hand icon */
+  /* float: left; */ /* Float the buttons side by side */
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 35px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #727473;
 }
 
 @keyframes spin {
