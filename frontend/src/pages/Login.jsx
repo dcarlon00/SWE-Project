@@ -26,7 +26,7 @@ function Login() {
         <h1>
             <FaSignInAlt/> Login
         </h1>
-        <p>Please register for an account</p>
+        <p>Please enter your email and password below</p>
     </section>
 
     <section className="form">
