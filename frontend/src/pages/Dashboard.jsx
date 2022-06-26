@@ -21,15 +21,16 @@ function Dashboard() {
 
     return <>
     
-    <header className='header'>
-        <div className="logo">
-            <Link to='/'>Fuel Application</Link>
+
+      <header className='header'>
+        <div class="btn-group">
+        <Link to='/Profile'> <button>  Your Profile </button> </Link>
         </div>
         <ul>
             <li>
                 <div class="btn-group">
                     <button className="btn">
-                        <FaSignOutAlt/> Logout
+                    <a href="/"> <FaSignOutAlt/> Logout </a>
                     </button>
                 </div>
             </li>  
@@ -45,9 +46,9 @@ function Dashboard() {
     </div>
     <header className='container'>
         <div class="btn-group" style={{width:`100%`}}>
-            <a href="/FuelForm">
+            <Link to ="/FuelForm">
                 <button style={{width:`33.3%`}}>Create Fuel Quote</button>
-            </a>
+            </Link>
             <button style={{width:`33.3%`}}>View Fuel Quote History</button>
             <button style={{width:`33.3%`}}>Function 3</button>
         </div>

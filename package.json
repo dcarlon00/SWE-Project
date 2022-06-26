@@ -29,6 +29,6 @@
     "react-redux": "^8.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.18"
   }
 }

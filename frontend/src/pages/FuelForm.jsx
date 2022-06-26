@@ -131,8 +131,8 @@ function FuelForm() {
                     Submit
                 </button>
             </div>
-
         </form>
+        <br></br>
     </section>
     </>
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import {FaUser} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
 
 
 function Register() {
@@ -32,7 +33,7 @@ function Register() {
     </section>
 
     <section className="form">
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} >
             <div className="form-group">
                 <input 
                     type="text"
@@ -78,9 +79,12 @@ function Register() {
                 />
             </div>
             <div className="form-group">
-                <button type="submit" className="btn btn-block">
-                    Submit
-                </button>
+                <Link to='/ProfileFinish?newuser'>
+                    <button type="submit" className="btn btn-block">
+                        Submit
+                    </button>
+                </Link>
+                
             </div>
 
         </form>

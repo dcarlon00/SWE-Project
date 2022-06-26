@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import FuelForm from './pages/FuelForm'
+import Profile from './pages/Profile'
+import ProfileFinish from './pages/ProfileFinish'
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
           <Route path ='/Login' element = {<Login />} />
           <Route path ='/Register' element = {<Register />} />
           <Route path ='/FuelForm' element = {<FuelForm />} />
+          <Route path ='/Profile' element = {<Profile />} />
+          <Route path ='/ProfileFinish' element = {<ProfileFinish />} />
+          <Route path ='/ProfileFinish?newuser' element = {<ProfileFinish/>} />
         </Routes>
       </div>
     </Router>
