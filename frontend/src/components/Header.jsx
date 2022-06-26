@@ -8,27 +8,32 @@ function Header() {
 /*     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {user} = useSelector((state) => state.auth) */
-
-
-  return (
-    <header className='header'>
-        <div className="logo">
-            <Link to='/'>Fuel Application</Link>
-        </div>
-        <ul>
-            <li>
-                <Link to='/Login'>
-                    <FaSignInAlt/> Login
-                </Link>
-            </li>  
-            <li>
-                <Link to='/Register'>
-                    <FaUser/> Register
-                </Link>
-            </li>
-        </ul>
-    </header>
-  )
+    const queryString = window.location.pathname;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel')))
+    {
+        return (
+            <header className='header'>
+                <div className="logo">
+                    <Link to='/'>Fuel Application</Link>
+                </div>
+                <ul>
+                    <li>
+                        <Link to='/Login'>
+                            <FaSignInAlt/> Login
+                        </Link>
+                    </li>  
+                    <li>
+                        <Link to='/Register'>
+                            <FaUser/> Register
+                        </Link>
+                    </li>
+                </ul>
+            </header>
+            )
+    }
+ 
 }
 
 export default Header

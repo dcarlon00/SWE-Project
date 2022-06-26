@@ -21,15 +21,16 @@ function Dashboard() {
 
     return <>
     
-    <header className='header'>
-        <div className="logo">
-            <Link to='/'>Fuel Application</Link>
+
+      <header className='header'>
+        <div class="btn-group">
+            <button> <Link to='/Profile'> Your Profile </Link> </button>
         </div>
         <ul>
             <li>
                 <div class="btn-group">
                     <button className="btn">
-                        <FaSignOutAlt/> Logout
+                    <a href="/"> <FaSignOutAlt/> Logout </a>
                     </button>
                 </div>
             </li>  
