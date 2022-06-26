@@ -29,7 +29,7 @@ function Dashboard() {
             <li>
                 <div class="btn-group">
                     <button className="btn">
-                        <FaSignOutAlt/> Logout
+                    <a href="/"> <FaSignOutAlt/> Logout </a>
                     </button>
                 </div>
             </li>  

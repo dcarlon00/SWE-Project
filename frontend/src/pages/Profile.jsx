@@ -23,12 +23,13 @@ function Profile() {
     
     <header className='header'>
         <div class="btn-group">
+             <Link to='/'> <button><a>Back to Dashboard</a> </button></Link> 
         </div>
         <ul>
             <li>
                 <div class="btn-group">
                     <button className="btn">
-                        <FaSignOutAlt/> Logout
+                        <a href="/"> <FaSignOutAlt/> Logout </a>
                     </button>
                 </div>
             </li>  
