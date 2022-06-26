@@ -35,7 +35,7 @@ function Login() {
                 <input 
                     type="email"
                     className='form-control' 
-                    id="emai" 
+                    id="email" 
                     name="email"
                     value={email} 
                     placeholder="Enter your email" 
