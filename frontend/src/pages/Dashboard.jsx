@@ -21,6 +21,7 @@ function Dashboard() {
 
     return <>
     
+
       <header className='header'>
         <div class="btn-group">
             <button> <Link to='/Profile'> Your Profile </Link> </button>
@@ -45,7 +46,9 @@ function Dashboard() {
     </div>
     <header className='container'>
         <div class="btn-group" style={{width:`100%`}}>
-            <button style={{width:`33.3%`}}>Create Fuel Quote</button>
+            <a href="/FuelForm">
+                <button style={{width:`33.3%`}}>Create Fuel Quote</button>
+            </a>
             <button style={{width:`33.3%`}}>View Fuel Quote History</button>
             <button style={{width:`33.3%`}}>Function 3</button>
         </div>
