@@ -23,7 +23,7 @@ function Profile() {
     
     <header className='header'>
         <div class="btn-group">
-             <Link to='/'> <button><a>Back to Dashboard</a> </button></Link> 
+             <Link to='/'> <button><a>Return to Dashboard</a> </button></Link> 
         </div>
         <ul>
             <li>
@@ -54,7 +54,7 @@ function Profile() {
                 <label> Zipcode: <input type="text" name="zipcode" placeholder='77000' minlength='5' maxlength='9' size='9' readOnly/> </label>
                 <br></br>
             </form>
-            <button> <Link to='/ProfileFinish'> <a>Modify Profile</a> </Link> </button>
+            <Link to='/ProfileFinish'> <button> <a>Modify Profile</a> </button></Link> 
         </div>
     </header>
 
