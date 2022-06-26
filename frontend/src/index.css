@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  background-color:#727473;
 }
 
 a {
@@ -61,7 +62,7 @@ h3 {
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .header ul {
@@ -263,4 +264,63 @@ h3 {
   .heading p {
     font-size: 1.5rem;
   }
+}
+
+
+/*Gabriel Giron Profile css*/
+label {
+  font-weight:bold;
+}
+
+input, .statedropdown{
+  padding: 8px 8px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  /*border: 3px solid #ccc;*/
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.profilelogout button {
+  float:right;
+}
+
+.buttonfix button a {
+  color: #fff;
+}
+
+.profileform, .profile {
+  padding: 0%;
+  margin: 0%;
+}
+
+.profile ::placeholder{
+ color:#000;
+}
+
+.logo {
+  font-size:x-large;
+}
+.btn-group {
+  padding: 0%;
+}
+
+.formbutton{
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 35px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group a:hover , .formbutton:hover{
+  background-color: #727473;
 }

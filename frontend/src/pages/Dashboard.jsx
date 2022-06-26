@@ -22,8 +22,8 @@ function Dashboard() {
     return <>
     
       <header className='header'>
-        <div className="logo">
-            <Link to='/'>Fuel Application</Link>
+        <div class="btn-group">
+            <a href ='/Profile'><button> Your Profile </button></a> 
         </div>
         <ul>
             <li>
