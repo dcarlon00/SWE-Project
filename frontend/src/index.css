@@ -298,11 +298,12 @@ input, .statedropdown{
   color: #fff;
 }
 
+/*
 .profileform, .profile {
   padding: 0%;
   margin: 0%;
 }
-
+*/
 .profile ::placeholder{
  color:#000;
 }
