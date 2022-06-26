@@ -21,11 +21,19 @@ function Profile() {
 
     return <>
     
-    <div class="btn-group profilelogout">
-        <button className="btn">
-            <FaSignOutAlt/> Logout
-        </button>
-    </div>
+    <header className='header'>
+        <div class="btn-group">
+        </div>
+        <ul>
+            <li>
+                <div class="btn-group">
+                    <button className="btn">
+                        <FaSignOutAlt/> Logout
+                    </button>
+                </div>
+            </li>  
+        </ul>
+    </header>
     <header className='container profile'>
         <h1>'User' Profile Page</h1>
         <p>Below is your current profile information:</p> 
@@ -45,7 +53,7 @@ function Profile() {
                 <label> Zipcode: <input type="text" name="zipcode" placeholder='77000' minlength='5' maxlength='9' size='9' readOnly/> </label>
                 <br></br>
             </form>
-            <a href="/ProfileFinish"> <button>Modify Profile</button></a>
+            <button> <Link to='/ProfileFinish'> <a>Modify Profile</a> </Link> </button>
         </div>
     </header>
 

@@ -23,7 +23,7 @@ function Dashboard() {
     
       <header className='header'>
         <div class="btn-group">
-            <a href ='/Profile'><button> Your Profile </button></a> 
+            <button> <Link to='/Profile'> Your Profile </Link> </button>
         </div>
         <ul>
             <li>

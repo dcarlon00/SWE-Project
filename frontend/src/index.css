@@ -286,7 +286,15 @@ input, .statedropdown{
   float:right;
 }
 
-.buttonfix button a {
+.btn-group button a {
+  color: #fff;
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 100%;
+}
+
+.header ul li a:hover {
   color: #fff;
 }
 
@@ -321,6 +329,6 @@ input, .statedropdown{
   justify-content: center;
 }
 
-.btn-group a:hover , .formbutton:hover{
-  background-color: #727473;
+.formbutton:hover {
+  background: #727473;
 }

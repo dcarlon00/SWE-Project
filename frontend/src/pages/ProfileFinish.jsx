@@ -23,18 +23,27 @@ function ProfileFinish() {
     }, [user, navigate]) */
 
     return <>
-    <div class="btn-group profilelogout">
-        <button className="btn">
-            <FaSignOutAlt/> Logout
-        </button>
-    </div>
+    <header className='header'>
+        <div class="btn-group">
+             <Link to='/Profile'> <button><a>Back to Main Profile</a> </button></Link> 
+        </div>
+        <ul>
+            <li>
+                <div class="btn-group">
+                    <button className="btn">
+                        <FaSignOutAlt/> Logout
+                    </button>
+                </div>
+            </li>  
+        </ul>
+    </header>
 
     <h1>'User' Profile Management</h1>
     <p id='message'></p>
     <br></br>
     <header className='container profileform'>
         <div class="btn-group" style={{width:`100%`, textAlign:'left'}}>
-            <form action='/Profile'>
+            <form action='/'>
                 <label> Full Name: <input type="text" name="fullname" placeholder='required' maxlength='50' size='50'/> </label>
                 <br></br>
                 <label> Address 1: &nbsp;<input type="text" name="address1" placeholder='required' maxlength='100' size='100'/> </label>
