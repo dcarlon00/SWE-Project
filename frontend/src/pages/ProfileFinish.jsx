@@ -29,7 +29,7 @@ function ProfileFinish() {
         </button>
     </div>
 
-    <h1>'User' Profile Page</h1>
+    <h1>'User' Profile Management</h1>
     <p id='message'></p>
     <br></br>
     <header className='container profileform'>
