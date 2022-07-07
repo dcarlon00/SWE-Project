@@ -26,7 +26,7 @@ const profileSchema = mongoose.Schema(
         type: String,
         required: [true,'Please select a state'],
     },
-    name: {
+    zipcode: {
         type: String,
         required: [true,'Please add zipcode'],
     },
