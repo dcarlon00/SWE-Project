@@ -1,13 +1,12 @@
 const asynchHandler = require('express-async-handler')
 
 const Form = require('../models/formModel')
+const User = require('../models/userModel')
 
 // This gets all forms.
 // GET /api/forms
-
-
 const getForm = asynchHandler(async (req, res) => {
-    const forms = await Form.find()
+    const forms = await Form.find({ user: req.user.id})
 
     res.status(200).json(forms)
 })
@@ -15,13 +14,20 @@ const getForm = asynchHandler(async (req, res) => {
 //This sets all forms
 // POST /api/forms
 const setForm = asynchHandler( async (req, res) => {
-   if(!req.body.text){
+    const {galReq, delAdd, delDate, ppGal, total} = req.body
+
+   if(!galReq || !delAdd || !delDate || !ppGal || !total){
     res.status(400)
-    throw new Error('Please add fields')
+    throw new Error('Please enter all fields')
    }
 
    const form = await Form.create({
-    text: req.body.text
+    galReq,
+    delAdd,
+    delDate,
+    ppGal,
+    total,
+    user: req.user.id,
    })
 
     res.status(200).json(form)
