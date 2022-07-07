@@ -7,6 +7,8 @@ const getUsers = (req, res) => {
 }
 
 const setUsers = (req, res) => {
+    console.log(req.body.text)
+
     res.status(200).json({ message: 'Set User' })
 }
 
