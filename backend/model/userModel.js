@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
+    //userID exists by default.
     name: {
         type: String,
         required: [true, 'Please add a name']
