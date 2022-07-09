@@ -42,14 +42,14 @@ const updateForm = asynchHandler(async (req, res) => {
         throw new Error('Form not found')
     }
 
-    const user = await User.findById(req.user.id)
+    
     //check if user exists
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User not found')
     }
     //Check if the logged in user matched the form user.
-    if(form.user.toString() !== user.id){
+    if(form.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -70,14 +70,14 @@ const deleteForm = asynchHandler(async (req, res) => {
         throw new Error('Form not found')
     }
 
-    const user = await User.findById(req.user.id)
+    /* const user = await User.findById(req.user.id) */
     //check if user exists
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User not found')
     }
     //Check if the logged in user matched the form user.
-    if(form.user.toString() !== user.id){
+    if(form.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('User not authorized')
     }

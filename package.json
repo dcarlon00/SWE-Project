@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "react-redux": "^8.0.2"
   },
   "devDependencies": {
+    "concurrently": "^7.2.2",
     "nodemon": "^2.0.19"
   }
 }
