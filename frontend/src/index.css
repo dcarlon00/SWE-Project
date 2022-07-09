@@ -333,3 +333,17 @@ input, .statedropdown{
 .formbutton:hover {
   background: #727473;
 }
+
+/*billy Profile css*/
+
+table {
+  width: 100%;
+  border: 2px solid;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 2px solid;
+  text-align: left;
+  padding: 5px;
+}
