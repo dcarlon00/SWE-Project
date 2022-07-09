@@ -3,21 +3,22 @@ import {useNavigate} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
+import {FuelForm} from '../components/FuelForm'
 /* import { Button } from '@themesberg/react-bootstrap' */
 
 
 
 
 function Dashboard() {
-/*     const navigate = useNavigate()
+    const navigate = useNavigate()
 
-    const {user} = useSelector((state) => state.auth) */
+    const {user} = useSelector((state) => state.auth)
 
- /*    useEffect(() => {
+    useEffect(() => {
         if(!user){
             navigate('/login') //should be /login
         }
-    }, [user, navigate]) */
+    }, [user, navigate])
 
     return <>
     
@@ -25,12 +26,13 @@ function Dashboard() {
       <header className='header'>
         <div class="btn-group">
         <Link to='/Profile'> <button>  Your Profile </button> </Link>
+        {/* FIX LINK IN HEADER COMPONENT */}
         </div>
         <ul>
             <li>
                 <div class="btn-group">
                     <button className="btn">
-                    <a href="/"> <FaSignOutAlt/> Logout </a>
+                    <a href="/Login"> <FaSignOutAlt/> Logout </a>
                     </button>
                 </div>
             </li>  
@@ -39,7 +41,7 @@ function Dashboard() {
     <div>
         
         <header className="container2">
-            <h1>Welcome 'User' to your Dashboard</h1>
+            <h1>Welcome '{user && user.name}' to your Dashboard</h1>
             <p>Below are your user functions.</p>
         </header>
         
@@ -49,7 +51,9 @@ function Dashboard() {
             <Link to ="/FuelForm">
                 <button style={{width:`33.3%`}}>Create Fuel Quote</button>
             </Link>
-            <button style={{width:`33.3%`}}>View Fuel Quote History</button>
+            <Link to ="/FuelQuoteHistory">
+                <button style={{width:`33.3%`}}>View Fuel Quote History</button>
+            </Link>
             <button style={{width:`33.3%`}}>Function 3</button>
         </div>
     </header>
