@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+import FuelForm from '../components/FuelForm'
 
-function FuelForm() {
+function FuelFormHist() {
     
     return <>
     <header className='header'>
@@ -19,15 +20,6 @@ function FuelForm() {
                 </li>
             </ul>
         </div>
-        <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                        <FaSignOutAlt/> Logout
-                    </button>
-                </div>
-            </li>  
-        </ul>
     </header>
 
     <section className="heading">
@@ -83,4 +75,4 @@ function FuelForm() {
     </>
 }
 
-export default FuelForm
+export default FuelFormHist;

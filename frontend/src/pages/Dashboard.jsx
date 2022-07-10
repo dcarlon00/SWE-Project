@@ -48,7 +48,7 @@ function Dashboard() {
     </div>
     <header className='container'>
         <div class="btn-group" style={{width:`100%`}}>
-            <Link to ="/FuelForm">
+            <Link to ="/FuelFormPage">
                 <button style={{width:`33.3%`}}>Create Fuel Quote</button>
             </Link>
             <Link to ="/FuelQuoteHistory">
