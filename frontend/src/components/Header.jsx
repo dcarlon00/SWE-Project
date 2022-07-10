@@ -27,7 +27,17 @@ function Header() {
                     <Link to='/'>Fuel Application</Link>
                 </div>
                 <ul>
-                    {user ? (                       
+                    {user ? (
+                        <>
+                         <li>
+                            <div className="btn-group">
+                                <Link to='/Profile'>
+                                    <button className="btn">
+                                        My Profile
+                                    </button>
+                                </Link>
+                            </div>
+                         </li>                  
                          <li>
                             <div className="btn-group">
                             <button className="btn" onClick={onLogout}>
@@ -35,6 +45,7 @@ function Header() {
                             </button>
                             </div>
                         </li>
+                        </>
                         ) : (
                         <>
                         <li>

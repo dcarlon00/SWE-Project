@@ -21,23 +21,6 @@ function Dashboard() {
     }, [user, navigate])
 
     return <>
-    
-
-      <header className='header'>
-        <div class="btn-group">
-        <Link to='/Profile'> <button>  Your Profile </button> </Link>
-        {/* FIX LINK IN HEADER COMPONENT */}
-        </div>
-        <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                    <a href="/Login"> <FaSignOutAlt/> Logout </a>
-                    </button>
-                </div>
-            </li>  
-        </ul>
-    </header>
     <div>
         
         <header className="container2">
