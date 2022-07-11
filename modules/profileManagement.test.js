@@ -1,14 +1,14 @@
 const profileManagement = require('./profileManagement');
 
-test('get the input', () => 
+test('Test if all form entries match the frontend restrictions', () => 
 {
+    const [name, address, address2, city, state, zipcode] = profileManagement('Pedro','6300 Londress Avenue','','Houston','TX','77500');
 
-  const [name, address, address2, city, state, zipcode] = profileManagement('Pedro','6300 Londress Avenue', '','Houston','TX','77500');
-
-  expect(name).not.toBeNull();
-  expect(address).not.toBeNull();
-  expect(address2).not.toBeNull();
-  expect(city).not.toBeNull();
-  expect(state).not.toBeNull();
-  expect(zipcode).not.toBeNull();
+    expect(name.length).toBeLessThan(51);
+    expect(address.length).toBeLessThan(101);
+    expect(address2.length).toBeLessThan(101);
+    expect(city.length).toBeLessThan(101);
+    expect(state.length).toEqual(2);
+    expect(zipcode.length).toBeLessThan(10);
+    expect(zipcode.length).toBeGreaterThan(4);
 });
