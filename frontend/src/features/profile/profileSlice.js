@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import formService from './formService'
+import profileService from './profileService'
 
 const initialState = {
-  forms: [],
+  profile: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
 }
 
-// Create new form
-export const createForm = createAsyncThunk(
-  'forms/create',
-  async (formData, thunkAPI) => {
+// Create new profile
+export const createProfile = createAsyncThunk(
+  'profile/create',
+  async (profileData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await formService.createForm(formData, token)
+      return await profileService.createProfile(profileData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -28,13 +28,13 @@ export const createForm = createAsyncThunk(
   }
 )
 
-// Get user forms
-export const getForms = createAsyncThunk(
-  'forms/getAll',
+// Get user profile
+export const getProfile = createAsyncThunk(
+  'profile/getAll',
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await formService.getForms(token)
+      return await profileService.getProfile(token)
     } catch (error) {
       const message =
         (error.response &&
@@ -47,13 +47,13 @@ export const getForms = createAsyncThunk(
   }
 )
 
-// Delete user form
-export const deleteForm = createAsyncThunk(
-  'forms/delete',
+// Delete users profile
+export const deleteProfile = createAsyncThunk(
+  'profile/delete',
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await formService.deleteForm(id, token)
+      return await profileService.deleteProfile(id, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -66,51 +66,51 @@ export const deleteForm = createAsyncThunk(
   }
 )
 
-export const formSlice = createSlice({
-  name: 'form',
+export const profileSlice = createSlice({
+  name: 'profile',
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createForm.pending, (state) => {
+      .addCase(createProfile.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(createForm.fulfilled, (state, action) => {
+      .addCase(createProfile.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.forms.push(action.payload)
+        state.profile.push(action.payload)
       })
-      .addCase(createForm.rejected, (state, action) => {
+      .addCase(createProfile.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(getForms.pending, (state) => {
+      .addCase(getProfile.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getForms.fulfilled, (state, action) => {
+      .addCase(getProfile.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.forms = action.payload
+        state.profile = action.payload
       })
-      .addCase(getForms.rejected, (state, action) => {
+      .addCase(getProfile.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
-      .addCase(deleteForm.pending, (state) => {
+      .addCase(deleteProfile.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(deleteForm.fulfilled, (state, action) => {
+      .addCase(deleteProfile.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.forms = state.forms.filter(
-          (form) => form._id !== action.payload.id
+        state.profile = state.profile.filter(
+          (profiles) => profiles._id !== action.payload.id
         )
       })
-      .addCase(deleteForm.rejected, (state, action) => {
+      .addCase(deleteProfile.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
@@ -118,5 +118,5 @@ export const formSlice = createSlice({
   },
 })
 
-export const { reset } = formSlice.actions
-export default formSlice.reducer
+export const { reset } = profileSlice.actions
+export default profileSlice.reducer

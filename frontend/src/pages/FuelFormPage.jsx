@@ -48,7 +48,7 @@ function FuelFormPage() {
         <p>Please fill in the fields below</p>
     </section> 
 
-   <FuelForm />
+   <FuelForm /> {/* Fuel Form component */}
     </>
 }
 

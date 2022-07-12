@@ -1,24 +1,23 @@
 
-
 import axios from 'axios'
 
-const API_URL = '/api/forms/'
+const API_URL = '/api/profile/'
 
 // Create new goal
-const createForm = async (formData, token) => {
+const createProfile = async (profileData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   }
 
-  const response = await axios.post(API_URL, formData, config)
+  const response = await axios.post(API_URL, profileData, config)
 
   return response.data
 }
 
 // Get user goals
-const getForms = async (token) => {
+const getProfile = async (token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -31,22 +30,22 @@ const getForms = async (token) => {
 }
 
 // Delete user goal
-const deleteForm= async (formId, token) => {
+const deleteProfile= async (profileId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   }
 
-  const response = await axios.delete(API_URL + formId, config)
+  const response = await axios.delete(API_URL + profileId, config)
 
   return response.data
 }
 
-const formService = {
-  createForm,
-  getForms,
-  deleteForm,
+const profileService = {
+  createProfile,
+  getProfile,
+  deleteProfile,
 }
 
-export default formService;
+export default profileService;

@@ -1,23 +1,29 @@
-import {useState} from 'react'
+
+import { useState, useEffect } from 'react'
+import {useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {createForm} from '../features/forms/formSlice'
-
+import {useSelector} from 'react-redux'
+import {getProfile, reset} from '../features/profile/profileSlice'
+import Spinner from '../components/Spinner'
+import GetAddComp from './GetAddComp'
 
 function FuelForm() {
-    /* const {user} = useSelector((state) => state.auth)  */
+
     //Allows us to access userData.
     const [formData, setFormData] = useState({
         gallons: '',
         currDelivery: '',
-        date: '',
+        date2: '',
         ppg: '',
         total: '',
     })
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [selectedDate, setSelectedDate] = useState(null)
-    const {gallons, currDelivery, date, ppg, total} = formData
+    const {gallons, currDelivery, date2, ppg, total} = formData
 
 
     const onSubmit = e => {
@@ -27,14 +33,42 @@ function FuelForm() {
         const formData = {
             gallons,
             currDelivery,
-            date,
+            date2,
             ppg,
             total,
         }
         dispatch(createForm({formData}))
         setFormData('')
     }
+    
+    
 
+    const {user} = useSelector((state) => state.auth)
+    const {profile, isLoading, isError, isSuccess, message} = useSelector((state) => state.profile)
+    const currAdd = user.name
+
+    useEffect(() => {
+        if(isError){
+            console.log(message);
+        }
+
+
+        if(!user) {
+            navigate('/login')
+        }
+
+        dispatch(getProfile())
+
+        return () =>{
+            dispatch(reset())
+        }
+    }, [user, navigate, isError, message, dispatch]);
+
+    if(isLoading){
+        return <Spinner />
+    }
+
+    
   return (
 <section className="form">
         <form onSubmit={onSubmit}>
@@ -50,6 +84,9 @@ function FuelForm() {
                 />
                 </label>
             </div>
+            <div>
+                <h1>{profile._id}</h1>
+            </div>
             <div className="form-group">
                 <label>Current Delivery Address:
                 <input 
@@ -58,7 +95,7 @@ function FuelForm() {
                     id="currDelivery" 
                     name="currDelivery"
                     value={currDelivery} onChange={(e) => setFormData(e.target.value)}
-                    placeholder='Get From Database' 
+                    placeholder={user._id}
                 />
                 </label>
             </div>
@@ -68,9 +105,9 @@ function FuelForm() {
                 <input 
                     type="date"
                     className='form-control' 
-                    id="date" 
-                    name="date"
-                    value={date} onChange={(e) => setFormData(e.target.value)}
+                    id="date2" 
+                    name="date2"
+                    value={date2} onChange={(e) => setFormData(e.target.value)}
                 />
                 </label>
             </div>
@@ -97,8 +134,9 @@ function FuelForm() {
                     className='form-control' 
                     id="totalAmount" 
                     name="totalAmount"
-                    defaultValue='5.00'
-                    readOnly          
+                    /* defaultValue='5.00' */
+                    value={total/* .value = gallons+ppg */} 
+                    onChange={(e) => setFormData(e.target.value)}         
                 />
                 </label>
             </div>

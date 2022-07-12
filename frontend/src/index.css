@@ -347,3 +347,9 @@ th, td {
   text-align: left;
   padding: 5px;
 }
+
+#cssTable td 
+{
+    text-align: center; 
+    vertical-align: middle;
+}
