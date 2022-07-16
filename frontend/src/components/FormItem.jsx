@@ -1,6 +1,7 @@
 
 function FormItem({form}) {
   const dateParsed = form.delDate.slice(0,10)
+  //Date fixed to show YYYY/MM/DD
 
   return (
     <>

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const API_URL = '/api/profile/'
 
-// Create new goal
+// Create new profile
 const createProfile = async (profileData, token) => {
   const config = {
     headers: {
@@ -16,7 +16,7 @@ const createProfile = async (profileData, token) => {
   return response.data
 }
 
-// Get user goals
+// Get user profile
 const getProfile = async (token) => {
   const config = {
     headers: {
@@ -29,7 +29,7 @@ const getProfile = async (token) => {
   return response.data
 }
 
-// Delete user goal
+// Delete user profile
 const deleteProfile= async (profileId, token) => {
   const config = {
     headers: {

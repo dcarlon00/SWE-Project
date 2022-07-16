@@ -4,26 +4,13 @@ import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import FuelForm from '../components/FuelForm'
 
 function FuelFormPage() {
-/*     const [formData, setFormData] = useState({
-        gallons: '',
-        date: '',
-    })
+    /* const navigate = useNavigate()
+    const dispatch = useDispatch()
 
-    const [selectedDate, setSelectedDate] = useState(null)
+    const {user} = useSelector((state) => state.auth)
+    const {forms, isLoading, isError, isSuccess, message} = useSelector((state) => state.forms)
 
-    const {gallons, date} = formData
-
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-    } */
-    
+     */
     return <>
     <header className='header'>
         <div className="logo">

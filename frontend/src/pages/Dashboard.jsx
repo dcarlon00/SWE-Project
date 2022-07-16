@@ -1,34 +1,66 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+import {useSelector, useDispatch} from 'react-redux'
+import {FaLaptopHouse, FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
-import {FuelForm} from '../components/FuelForm'
-/* import { Button } from '@themesberg/react-bootstrap' */
+import ProfileFinishForm from '../components/ProfileFinishForm'
+import {getProfile, reset} from '../features/profile/profileSlice'
+import Spinner from '../components/Spinner'
 
 
 
 
 function Dashboard() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const {user} = useSelector((state) => state.auth)
 
     useEffect(() => {
         if(!user){
-            navigate('/login') //should be /login
+            navigate('/Login') //should be /login
         }
+
     }, [user, navigate])
 
+    const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
+
+    useEffect(() => {
+        if(isError){
+            console.log(message);
+        }
+
+
+        if(!user) {
+            navigate('/login')
+        }
+
+        dispatch(getProfile())
+
+        return () =>{
+            dispatch(reset())
+        }
+    }, [user, navigate, isError, message, dispatch]);
+
+    if(isLoading){
+        return <Spinner />
+    }
+
+
     return <>
+    {/* Check condition to see if Dashboard is completed by checking profile length*/}
+    {profile.length > 0 ? (   
+        <> 
     <div>
         
         <header className="container2">
             <h1>Welcome '{user && user.name}' to your Dashboard</h1>
             <p>Below are your user functions.</p>
         </header>
-        
+    {/* CHECK to see if user has completed dash. IF not force to complete dash. */}
+
     </div>
+    
     <header className='container'>
         <div class="btn-group" style={{width:`100%`}}>
             <Link to ="/FuelFormPage">
@@ -40,18 +72,12 @@ function Dashboard() {
             <button style={{width:`33.3%`}}>Function 3</button>
         </div>
     </header>
+    </>) 
+    : (<ProfileFinishForm />)}
 
 
+    
     </>
-    
-
-
-/*     return <>
-        <section className="heading">
-            <h1>Welcome 'user's name'</h1>
-        </section>
-    
-    </> */
     
 }
 

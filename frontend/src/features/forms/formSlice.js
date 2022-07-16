@@ -69,8 +69,13 @@ export const deleteForm = createAsyncThunk(
 export const formSlice = createSlice({
   name: 'form',
   initialState,
-  reducers: {
-    reset: (state) => initialState,
+  reducers: {     
+    reset:(state) => {
+      state.isLoading = false
+      state.isSuccess = false
+      state.isError = false
+      state.message = ''
+    },
   },
   extraReducers: (builder) => {
     builder

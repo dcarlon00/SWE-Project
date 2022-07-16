@@ -1,12 +1,14 @@
 
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {createForm} from '../features/forms/formSlice'
-import {useSelector} from 'react-redux'
-import {getProfile, reset} from '../features/profile/profileSlice'
+
+
 import Spinner from '../components/Spinner'
 import GetAddComp from './GetAddComp'
+import {getProfile, reset} from '../features/profile/profileSlice'
+import FormItem from './FormItem'
 
 function FuelForm() {
 
@@ -44,8 +46,8 @@ function FuelForm() {
     
 
     const {user} = useSelector((state) => state.auth)
-    const {profile, isLoading, isError, isSuccess, message} = useSelector((state) => state.profile)
-    const currAdd = user.name
+    const {forms} = useSelector((state) => state.forms)
+    const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
 
     useEffect(() => {
         if(isError){
@@ -84,9 +86,6 @@ function FuelForm() {
                 />
                 </label>
             </div>
-            <div>
-                <h1>{profile._id}</h1>
-            </div>
             <div className="form-group">
                 <label>Current Delivery Address:
                 <input 
@@ -95,10 +94,33 @@ function FuelForm() {
                     id="currDelivery" 
                     name="currDelivery"
                     value={currDelivery} onChange={(e) => setFormData(e.target.value)}
-                    placeholder={user._id}
+/*                     placeholder={profile.map((profile) =>(
+                        <GetAddComp key={profile._id} profile={profile}/>   
+                    ))} */
                 />
                 </label>
             </div>
+
+ {/*            {profile.length > 0 ? (
+                <div className="profile">
+                    {profile.map((profile) => (
+                        <GetAddComp key={profile._id} profiler={profile}/>
+                    ))}
+                </div>
+            ) : 
+            (<h3> Error </h3>)} */}
+    
+        {forms.length > 0 ? (
+            <div className="forms">
+                {forms.map((form) =>(
+                    <FormItem key={form._id} form={form}/>
+                ))}
+                {/* Here we call the component to be able to display data */}
+                {/* Keep in mind this will LOOP for ALL existing fuelquote forms */}
+            </div>
+        ) : (<h3>You have not created a Fuel Quote</h3>)
+        }
+    
 
             <div className="form-group">
                 <label>Select Delivery Date: 

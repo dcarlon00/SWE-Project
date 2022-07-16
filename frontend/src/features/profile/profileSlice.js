@@ -65,7 +65,7 @@ export const deleteProfile = createAsyncThunk(
     }
   }
 )
-
+/* Changes made 07/15 */
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
