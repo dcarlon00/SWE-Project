@@ -70,12 +70,7 @@ export const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {     
-    reset:(state) => {
-      state.isLoading = false
-      state.isSuccess = false
-      state.isError = false
-      state.message = ''
-    },
+    reset:(state) => initialState,
   },
   extraReducers: (builder) => {
     builder

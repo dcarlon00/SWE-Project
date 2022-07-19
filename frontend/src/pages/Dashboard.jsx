@@ -55,7 +55,7 @@ function Dashboard() {
         
         <header className="container2">
             <h1>Welcome '{user && user.name}' to your Dashboard</h1>
-            <p>Below are your user functions.</p>
+            <h3>Below are your user functions.</h3>
         </header>
     {/* CHECK to see if user has completed dash. IF not force to complete dash. */}
 

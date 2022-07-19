@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
@@ -33,20 +33,27 @@ function ProfileFinish() {
 
     /* const[profileData, setProfileData] = useState('') */
 
-    const {name, addressOne, addressTwo, city, state, zipcode} = profileData
+    const {addressOne, addressTwo, city, /* state ,*/ zipcode} = profileData
+    var name = `${user.name}`
+    var state = ''/* document.getElementById("state").value */
 
-    const{profile, isLoading, isError, isSuccess,message} = useSelector(
+ /*    const{profile, isLoading, isError, isSuccess,message} = useSelector(
         (state) => state.profile
-        )
+        ) */
 
     const onChange = (e) => {
         setProfileData((prevState) => ({
           ...prevState,
           [e.target.name]: e.target.value,
-        }))``
+        }))
       }
+
+      
     const onSubmit = e => {
         e.preventDefault()
+
+        state = document.querySelector("#state").value;
+        console.log(state)
 
         const profileData = {
             name,
@@ -60,17 +67,13 @@ function ProfileFinish() {
         setProfileData('')
     }
 
-    var namePull = `${user.name}`
-    var newName = JSON.stringify(namePull);
-    var newerName = JSON.parse(newName);
-   /*  const pullv2 = document.getElementById('name').value; */
-
+    
 
     return <>  
-    <h1>Hello '{namePull}' Please Complete Profile</h1>
+    <h1>Hello '{name}' Please Complete Profile</h1>
     <p id='message'></p>
     <br></br>
-    <div>{newerName}</div>
+    {/* <div>{newerName}</div> */}
     <section className="form">
         <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -80,8 +83,9 @@ function ProfileFinish() {
                     className='form-control' 
                     id="name"
                     name="name"
-                    value={name} onChange={onChange}
-                    placeholder={namePull}
+                    defaultValue={name}
+                    placeholder={name}
+                    readOnly='readOnly'
                 />
                 </label>
             </div>
@@ -122,7 +126,7 @@ function ProfileFinish() {
                 </label>
             </div>
             <div className="form-group">
-                <label> State:
+{/*                 <label> State:
                 <input
                     type="text"
                     className='form-control' 
@@ -131,7 +135,64 @@ function ProfileFinish() {
                     value={state} onChange={onChange}
                     placeholder="(Required)"        
                 />
-                </label>
+                </label> */}
+                <label> State: </label>
+                <select 
+                name="state"
+                id="state" 
+                class='statedropdown'>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>             
             </div>
             <div className="form-group">
                 <label> Zipcode:

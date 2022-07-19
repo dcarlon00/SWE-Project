@@ -12,9 +12,10 @@ function Header() {
     const onLogout = () => {
         dispatch(logout())
         dispatch(reset())
-        navigate('/Login')
+        navigate('/')
     }
 
+    /* MAKE SURE TO CHANGE 'PROFILE' Button, to only show if dashComp === true */
 
     const queryString = window.location.pathname;
     console.log(queryString);

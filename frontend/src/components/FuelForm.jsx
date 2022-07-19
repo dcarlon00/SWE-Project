@@ -2,61 +2,37 @@
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {createForm} from '../features/forms/formSlice'
-
-
+import {createForm, reset} from '../features/forms/formSlice'
 import Spinner from '../components/Spinner'
-import GetAddComp from './GetAddComp'
-import {getProfile, reset} from '../features/profile/profileSlice'
-import FormItem from './FormItem'
+import {getProfile} from '../features/profile/profileSlice'
+
+
 
 function FuelForm() {
-
-    //Allows us to access userData.
-    const [formData, setFormData] = useState({
-        gallons: '',
-        currDelivery: '',
-        date2: '',
-        ppg: '',
-        total: '',
-    })
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [selectedDate, setSelectedDate] = useState(null)
-    const {gallons, currDelivery, date2, ppg, total} = formData
 
+    const {user} = useSelector((state) => state.auth) 
 
-    const onSubmit = e => {
-        e.preventDefault();
-
-
-        const formData = {
-            gallons,
-            currDelivery,
-            date2,
-            ppg,
-            total,
+    useEffect(() => {
+        if(!user){
+            navigate('/Login') //should be /login
         }
-        dispatch(createForm({formData}))
-        setFormData('')
-    }
-    
-    
 
-    const {user} = useSelector((state) => state.auth)
-    const {forms} = useSelector((state) => state.forms)
+    }, [user, navigate])
+
     const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
+
+    //Allows us to access userData.
 
     useEffect(() => {
         if(isError){
             console.log(message);
         }
 
-
-        if(!user) {
-            navigate('/login')
+        if(!user){
+            navigate('/Login') //should be /login
         }
 
         dispatch(getProfile())
@@ -64,7 +40,42 @@ function FuelForm() {
         return () =>{
             dispatch(reset())
         }
-    }, [user, navigate, isError, message, dispatch]);
+    }, [user, navigate, isError, message, dispatch])
+
+    const [formData, setFormData] = useState({
+        galReq: '',
+        delAdd: '',
+        delDate: '',
+        ppGal: '',
+        total: '',
+    })
+
+    const { galReq, delDate, ppGal, total} = formData
+    var delAdd = `${profile[0].addressOne}`
+    
+
+    const onChange = (e) => {
+        setFormData((prevState) => ({
+          ...prevState,
+          [e.target.name]: e.target.value,
+        }))
+      }
+
+    const onSubmit = e => {
+        e.preventDefault()
+
+
+        const formData = {
+            galReq,
+            delAdd,
+            delDate,
+            ppGal,
+            total,
+        }
+        dispatch(createForm({formData}))
+        setFormData('')
+    }
+    
 
     if(isLoading){
         return <Spinner />
@@ -72,6 +83,7 @@ function FuelForm() {
 
     
   return (
+    <>
 <section className="form">
         <form onSubmit={onSubmit}>
             <div className="form-group">
@@ -79,9 +91,9 @@ function FuelForm() {
                 <input
                     type="number"
                     className='form-control' 
-                    id="gallons" 
-                    name="gallons"
-                    value={gallons} onChange={(e) => setFormData(e.target.value)}
+                    id="galReq" 
+                    name="galReq"
+                    value={galReq} onChange={onChange}
                     placeholder="(Required)"        
                 />
                 </label>
@@ -91,45 +103,23 @@ function FuelForm() {
                 <input 
                     type="text"
                     className='form-control' 
-                    id="currDelivery" 
-                    name="currDelivery"
-                    value={currDelivery} onChange={(e) => setFormData(e.target.value)}
-/*                     placeholder={profile.map((profile) =>(
-                        <GetAddComp key={profile._id} profile={profile}/>   
-                    ))} */
+                    id="delAdd" 
+                    name="delAdd"
+                    /* value={delAdd} onChange={onChange} */
+                    defaultValue={delAdd} onChange={onChange}
+                    placeholder={delAdd}
                 />
                 </label>
             </div>
-
- {/*            {profile.length > 0 ? (
-                <div className="profile">
-                    {profile.map((profile) => (
-                        <GetAddComp key={profile._id} profiler={profile}/>
-                    ))}
-                </div>
-            ) : 
-            (<h3> Error </h3>)} */}
-    
-        {forms.length > 0 ? (
-            <div className="forms">
-                {forms.map((form) =>(
-                    <FormItem key={form._id} form={form}/>
-                ))}
-                {/* Here we call the component to be able to display data */}
-                {/* Keep in mind this will LOOP for ALL existing fuelquote forms */}
-            </div>
-        ) : (<h3>You have not created a Fuel Quote</h3>)
-        }
-    
 
             <div className="form-group">
                 <label>Select Delivery Date: 
                 <input 
                     type="date"
                     className='form-control' 
-                    id="date2" 
-                    name="date2"
-                    value={date2} onChange={(e) => setFormData(e.target.value)}
+                    id="delDate" 
+                    name="delDate"
+                    value={delDate} onChange={onChange}
                 />
                 </label>
             </div>
@@ -140,10 +130,10 @@ function FuelForm() {
                     type="number"
                     step='0.01'
                     className='form-control' 
-                    id="gallonPrice" 
-                    name="gallonPrice"
+                    id="ppGal" 
+                    name="ppGal"
                     placeholder='Gal.'       
-                    value={ppg} onChange={(e) => setFormData(e.target.value)} 
+                    value={ppGal} onChange={onChange} 
                 />
                 </label>
             </div>
@@ -158,7 +148,7 @@ function FuelForm() {
                     name="totalAmount"
                     /* defaultValue='5.00' */
                     value={total/* .value = gallons+ppg */} 
-                    onChange={(e) => setFormData(e.target.value)}         
+                    onChange={onChange}         
                 />
                 </label>
             </div>
@@ -171,7 +161,8 @@ function FuelForm() {
         </form>
         <br></br>
     </section>
+    </>
   )
 }
 
-export default FuelForm;
+export default FuelForm
