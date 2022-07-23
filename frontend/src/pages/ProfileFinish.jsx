@@ -12,31 +12,7 @@ function ProfileFinish() {
   <span>Success!</span>
 </div>
 
-/*     const navigate = useNavigate()
-
-    const {user} = useSelector((state) => state.auth) */
-
- /*    useEffect(() => {
-        if(!user){
-            navigate('/login') //should be /login
-        }
-    }, [user, navigate]) */
-
     return <>
-    <header className='header'>
-        <div class="btn-group">
-             <Link to='/Profile'> <button><a>Back to Main Profile</a> </button></Link> 
-        </div>
-        <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                        <FaSignOutAlt/> Logout
-                    </button>
-                </div>
-            </li>  
-        </ul>
-    </header>
 
     <h1>'User' Profile Management</h1>
     <p id='message'></p>
