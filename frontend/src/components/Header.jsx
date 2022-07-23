@@ -15,6 +15,7 @@ function Header() {
         navigate('/')
     }
 
+    /* MAKE SURE TO CHANGE 'PROFILE' Button, to only show if dashComp === true */
 
     const queryString = window.location.pathname;
     console.log(queryString);
@@ -27,12 +28,25 @@ function Header() {
                     <Link to='/'>Fuel Application</Link>
                 </div>
                 <ul>
-                    {user ? (                       
+                    {user ? (
+                        <>
                          <li>
+                            <div className="btn-group">
+                                <Link to='/Profile'>
+                                    <button className="btn">
+                                        My Profile
+                                    </button>
+                                </Link>
+                            </div>
+                         </li>                  
+                         <li>
+                            <div className="btn-group">
                             <button className="btn" onClick={onLogout}>
                                 <FaSignOutAlt/> Logout
                             </button>
+                            </div>
                         </li>
+                        </>
                         ) : (
                         <>
                         <li>

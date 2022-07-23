@@ -266,6 +266,13 @@ h3 {
   }
 }
 
+.false_dash h1 {
+  color: red;
+}
+
+.true_dash h1{
+  color: green;
+}
 
 /*Gabriel Giron Profile css*/
 label {
@@ -346,4 +353,10 @@ th, td {
   border: 2px solid;
   text-align: left;
   padding: 5px;
+}
+
+#cssTable td 
+{
+    text-align: center; 
+    vertical-align: middle;
 }
