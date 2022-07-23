@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657511990713" clover="3.2.0">
-  <project timestamp="1657511990715" name="All files">
+<coverage generated="1657846258921" clover="3.2.0">
+  <project timestamp="1657846258922" name="All files">
     <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3" elements="17" coveredelements="15" complexity="0" loc="10" ncloc="10" packages="1" files="3" classes="3"/>
     <file name="fuelForm.js" path="C:\Users\gabri\Documents\GitHub\SWE-Project\modules\fuelForm.js">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
