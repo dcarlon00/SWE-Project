@@ -9,6 +9,15 @@ import {Link} from 'react-router-dom'
 
 
 function Profile() {
+/*     const navigate = useNavigate()
+
+    const {user} = useSelector((state) => state.auth) */
+
+ /*    useEffect(() => {
+        if(!user){
+            navigate('/login') //should be /login
+        }
+    }, [user, navigate]) */
 
     return <>
     

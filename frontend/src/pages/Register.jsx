@@ -29,7 +29,7 @@ function Register() {
             toast.error(message)
         }
         if(isSuccess || user){
-            navigate('/ProfileFinish')
+            navigate('/')
         }
 
         dispatch(reset())

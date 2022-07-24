@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import FuelFormPage from './pages/FuelFormPage'
+import FuelForm from './pages/FuelForm'
 import Profile from './pages/Profile'
 import ProfileFinish from './pages/ProfileFinish'
 import FuelQuoteHistory from './pages/FuelQuoteHistory'
@@ -20,7 +20,7 @@ function App() {
           <Route path ='/' element = {<Dashboard />} />
           <Route path ='/Login' element = {<Login />} />
           <Route path ='/Register' element = {<Register />} />
-          <Route path ='/FuelFormPage' element = {<FuelFormPage />} />
+          <Route path ='/FuelForm' element = {<FuelForm />} />
           <Route path ='/Profile' element = {<Profile />} />
           <Route path ='/ProfileFinish' element = {<ProfileFinish />} />
           <Route path ='/ProfileFinish?newuser' element = {<ProfileFinish/>} />

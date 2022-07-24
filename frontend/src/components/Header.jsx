@@ -15,12 +15,11 @@ function Header() {
         navigate('/')
     }
 
-    /* MAKE SURE TO CHANGE 'PROFILE' Button, to only show if dashComp === true */
 
     const queryString = window.location.pathname;
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
-    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel')))
+    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel') || urlParams.has('/FuelQuoteHistory')))
     {
         return (
             <header className='header'>
@@ -28,25 +27,12 @@ function Header() {
                     <Link to='/'>Fuel Application</Link>
                 </div>
                 <ul>
-                    {user ? (
-                        <>
+                    {user ? (                       
                          <li>
-                            <div className="btn-group">
-                                <Link to='/Profile'>
-                                    <button className="btn">
-                                        My Profile
-                                    </button>
-                                </Link>
-                            </div>
-                         </li>                  
-                         <li>
-                            <div className="btn-group">
                             <button className="btn" onClick={onLogout}>
                                 <FaSignOutAlt/> Logout
                             </button>
-                            </div>
                         </li>
-                        </>
                         ) : (
                         <>
                         <li>
