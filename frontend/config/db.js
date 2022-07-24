@@ -1,21 +1,16 @@
-const mongoose = require('mongoose');
-const config = require('config');
-const db = config.get('mongoURI');
+const mongoose = require('mongoose')
 
 const connectDB = async () => {
-  try {
-    await mongoose.connect(
-      db,
-      {
-        useNewUrlParser: true
-      }
-    );
+    try{
+        const conn = await mongoose.connect(process.env.MONGO_URI)
 
-    console.log('MongoDB is Connected...');
-  } catch (err) {
-    console.error(err.message);
-    process.exit(1);
-  }
-};
+        console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.
+        underline);
+    }catch (error){
+        console.log(error);
+        process.exit(1)
 
-module.exports = connectDB;
+    }
+}
+
+module.exports = connectDB

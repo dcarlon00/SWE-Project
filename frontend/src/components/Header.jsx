@@ -19,7 +19,7 @@ function Header() {
     const queryString = window.location.pathname;
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
-    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel') || urlParams.has('/FuelQuoteHistory')))
+    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel')))
     {
         return (
             <header className='header'>
