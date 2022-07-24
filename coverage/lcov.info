@@ -1,5 +1,5 @@
 TN:
-SF:modules\fuelForm.js
+SF:frontend\src\modules\fuelForm.js
 FN:1,fuelForm
 FNF:1
 FNH:1
@@ -16,7 +16,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:modules\profileManagement.js
+SF:frontend\src\modules\profileManagement.js
 FN:1,profileManagement
 FNF:1
 FNH:1

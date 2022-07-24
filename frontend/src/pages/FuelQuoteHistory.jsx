@@ -20,13 +20,7 @@ function FuelForm() {
             </ul>
         </div>
         <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                        <FaSignOutAlt/> Logout
-                    </button>
-                </div>
-            </li>  
+            <li> </li>  
         </ul>
     </header>
 

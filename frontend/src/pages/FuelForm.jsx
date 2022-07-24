@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+import {useDispatch} from 'react-redux'
+//import {fuelForm} from '../modules/fuelForm'
+const fuelForm = require('../modules/fuelForm');
 
 function FuelForm() {
-    const [formData, setFormData] = useState({
+    var [formData, setFormData] = useState({
         gallons: '',
         date: '',
+        totalAmount: 5,
     })
 
     const [selectedDate, setSelectedDate] = useState(null)
 
-    const {gallons, date} = formData
+    var {gallons, date, totalAmount} = formData
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -19,8 +23,21 @@ function FuelForm() {
         }))
     }
 
+    const dispatch = useDispatch()
+
     const onSubmit = (e) => {
         e.preventDefault()
+
+        console.log(e.target.length,"elements were given by the form:")
+        for (var i = 0; i <= e.target.length - 2; i++) // the -2 prevents printing the 'total amount' and the button
+        {
+            console.log(e.target[i].value)
+        }
+        const data = e.target
+        const [gallons, address, date, gallonPrice] = data
+        var output = fuelForm(gallons.value, address.value, date.value, gallonPrice.value)
+        totalAmount = output[4]
+        console.log(totalAmount) // right now it does not update on the form
     }
     
     return <>
@@ -39,13 +56,7 @@ function FuelForm() {
             </ul>
         </div>
         <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                        <FaSignOutAlt/> Logout
-                    </button>
-                </div>
-            </li>  
+            <li> </li>  
         </ul>
     </header>
 
@@ -79,7 +90,7 @@ function FuelForm() {
                     className='form-control' 
                     id="address" 
                     name="address"
-                    placeholder="University of Houston"  
+                    value="University of Houston"  
                     readOnly
                 />
                 </label>
@@ -120,7 +131,8 @@ function FuelForm() {
                     className='form-control' 
                     id="totalAmount" 
                     name="totalAmount"
-                    defaultValue='5.00'
+                    value={totalAmount}
+                    onChange={onChange}
                     readOnly          
                 />
                 </label>

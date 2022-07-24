@@ -15,7 +15,7 @@ const getForm = asynchHandler(async (req, res) => {
 //This sets all forms
 // POST /api/forms
 const setForm = asynchHandler( async (req, res) => {
-    const {galReq, delAdd, delDate, ppGal, total} = req.body
+    const {galReq, delAdd, delDate, ppGal, total} = req.body.formData
 
    if(!galReq || !delAdd || !delDate || !ppGal || !total){
     res.status(400)

@@ -26,22 +26,15 @@ function Dashboard() {
       <header className='header'>
         <div class="btn-group">
         <Link to='/Profile'> <button>  Your Profile </button> </Link>
-        {/* FIX LINK IN HEADER COMPONENT */}
         </div>
         <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                    <a href="/Login"> <FaSignOutAlt/> Logout </a>
-                    </button>
-                </div>
-            </li>  
+            <li> </li>  
         </ul>
     </header>
     <div>
         
         <header className="container2">
-            <h1>Welcome '{user && user.name}' to your Dashboard</h1>
+            <h1>Welcome '{/*user && user.name*/'User'}' to your Dashboard</h1>
             <p>Below are your user functions.</p>
         </header>
         

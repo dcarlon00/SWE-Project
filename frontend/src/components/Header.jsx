@@ -14,44 +14,38 @@ function Header() {
         dispatch(reset())
         navigate('/')
     }
-
-
     const queryString = window.location.pathname;
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
-    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel')))
-    {
-        return (
-            <header className='header'>
-                <div className="logo">
-                    <Link to='/'>Fuel Application</Link>
-                </div>
-                <ul>
-                    {user ? (                       
-                         <li>
-                            <button className="btn" onClick={onLogout}>
-                                <FaSignOutAlt/> Logout
-                            </button>
-                        </li>
-                        ) : (
-                        <>
+    return (
+        <header className='header'>
+            <div className="logo">
+                <Link to='/'>Fuel Application</Link>
+            </div>
+            <ul>
+                {user ? (                       
                         <li>
-                            <Link to='/Login'>
-                                <FaSignInAlt/> Login
-                            </Link>
-                        </li>  
-                        <li>
-                            <Link to='/Register'>
-                                <FaUser/> Register
-                            </Link>
-                        </li>
-                    </>)}
+                        <button className="btn" onClick={onLogout}>
+                            <FaSignOutAlt/> Logout
+                        </button>
+                    </li>
+                    ) : (
+                    <>
+                    <li>
+                        <Link to='/Login'>
+                            <FaSignInAlt/> Login
+                        </Link>
+                    </li>  
+                    <li>
+                        <Link to='/Register'>
+                            <FaUser/> Register
+                        </Link>
+                    </li>
+                </>)}
 
-                </ul>
-            </header>
-            )
-    }
- 
+            </ul>
+        </header>
+        ) 
 }
 
 export default Header

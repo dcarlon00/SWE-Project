@@ -1,5 +1,6 @@
 function fuelForm(gallons, address, deliveryDate ,pricePerGallon) 
 {
+    console.log("The FuelForm function works")
     var total = pricePerGallon * gallons;
     if (arguments.length > 0)
     {

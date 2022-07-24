@@ -26,13 +26,7 @@ function Profile() {
              <Link to='/'> <button><a>Return to Dashboard</a> </button></Link> 
         </div>
         <ul>
-            <li>
-                <div class="btn-group">
-                    <button className="btn">
-                        <a href="/"> <FaSignOutAlt/> Logout </a>
-                    </button>
-                </div>
-            </li>  
+            <li> </li>  
         </ul>
     </header>
     <header className='container profile'>
