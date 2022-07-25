@@ -30,10 +30,10 @@ export const createProfile = createAsyncThunk(
 
 export const updateProfile = createAsyncThunk(
   'profile/update',
-  async (id, profileData, thunkAPI) => {
+  async (arg, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await profileService.updateProfile(id, profileData, token)
+      return await profileService.updateProfile(arg.id, arg.profileData, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -111,7 +111,7 @@ export const profileSlice = createSlice({
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.profile.push(action.payload)
+        state.profile[0] = action.payload
       })
       .addCase(updateProfile.rejected, (state, action) => {
         state.isLoading = false
