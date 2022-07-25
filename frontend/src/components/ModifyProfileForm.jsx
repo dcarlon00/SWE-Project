@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
-import {createForm, reset} from '../features/forms/formSlice'
+//import {createForm, reset} from '../features/forms/formSlice'
 import Spinner from '../components/Spinner'
-import {getProfile, updateProfile} from '../features/profile/profileSlice'
-import {Link} from 'react-router-dom'
+import {getProfile, updateProfile, reset} from '../features/profile/profileSlice'
 
 
 
-function ModifyProfileForm() {
+function ModifyProfileForm( {userName, addressOne, addressTwo, city, state, zipcode, id} ) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -24,42 +22,20 @@ function ModifyProfileForm() {
     }, [user, navigate])
 
     const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
-
-    //Allows us to access userData.
-
-    useEffect(() => {
-        if(isError){
-            console.log(message);
-        }
-
-        dispatch(getProfile())
-
-        /*return () =>{
-            dispatch(reset())
-        }*/
-    }, [user, navigate, isError, message, dispatch])
-
+    
     const[profileData, SetProfileData] = useState({
-        name: '',
-        addressOne: '',
-        addressTwo: '',
-        city: '',
-        state: '',
-        zipcode: '',
+        nameUpdate: userName,
+        addressOneUpdate: addressOne,
+        addressTwoUpdate: addressTwo,
+        cityUpdate: city,
+        stateUpdate: state,
+        zipcodeUpdate: zipcode,
     })
+ 
 
-    if(isLoading){
-        return <Spinner />
-    }
+    const {nameUpdate, addressOneUpdate, addressTwoUpdate, cityUpdate, zipcodeUpdate} = profileData
 
-    const {name, addressOne, addressTwo, city, zipcode} = profileData
-
-    /*var name = `${profile[0].name}`
-    var addressOne = `${profile[0].addressOne}`
-    var addressTwo = `${profile[0].addressTwo}`
-    var city = `${profile[0].city}`*/
-    var state = `${profile[0].state}`
-    //var zipcode = `${profile[0].zipcode}`
+    var stateUpdate = state
 
     const onChange = (e) => {
         SetProfileData((prevState) => ({
@@ -71,41 +47,47 @@ function ModifyProfileForm() {
     const onSubmit = e => {
         e.preventDefault()
 
-        state = document.querySelector("#state").value;
-        console.log(state)
+        stateUpdate = document.querySelector("#stateUpdate").value;
+        console.log(stateUpdate)
 
         const profileData = {
-            name,
-            addressOne,
-            addressTwo,
-            city,
-            state,
-            zipcode,
-        }  
-        dispatch(updateProfile(user._id, profileData))
+            nameUpdate,
+            addressOneUpdate,
+            addressTwoUpdate,
+            cityUpdate,
+            stateUpdate,
+            zipcodeUpdate,
+        }
+        console.log(profileData)
+        console.log(id)
+        
+        dispatch(updateProfile({id, profileData}))
+        if(isLoading){
+            return <Spinner />
+        }
         SetProfileData('') 
-        navigate('/Profile')
+        navigate('/')
     }
 
     return (
     <>
     
-    <h1>{user.name}'s Profile Management</h1>
+    <h1>{userName}'s Profile Management</h1>
     <p id='message'></p>
     <br></br>
     <header className='container profileform'>
         <form onSubmit={onSubmit}>
             <div class="btn-group" style={{width:`100%`, textAlign:'left'}}>
-                <label> Full Name: <input type="text" name="name" defaultvalue={`${profile[0].name}`} placeholder={`${profile[0].name}`} maxlength='50' size='50' onChange={onChange}/> </label>
+                <label> Full Name: <input type="text" name="nameUpdate" defaultValue={userName} placeholder={userName} maxLength='50' size='50' onChange={onChange}/> </label>
                 <br></br>
-                <label> Address 1: &nbsp;<input type="text" name="addressOne" defaultvalue={`${profile[0].addressOne}`} placeholder={`${profile[0].addressOne}`} maxlength='100' size='100' onChange={onChange}/> </label>
+                <label> Address 1: &nbsp;<input type="text" name="addressOneUpdate" defaultValue={addressOne} placeholder={addressOne} maxLength='100' size='100' onChange={onChange}/> </label>
                 <br></br>
-                <label> Address 2: <input type="text" name="addressTwo" defaultvalue={`${profile[0].addressTwo}`} placeholder={`${profile[0].addressTwo}`} maxlength='100' size='100' onChange={onChange}/> </label>
+                <label> Address 2: <input type="text" name="addressTwoUpdate" defaultValue={addressTwo} placeholder={addressTwo} maxLength='100' size='100' onChange={onChange}/> </label>
                 <br></br>
-                <label> City: &nbsp;&nbsp;&nbsp;<input type="text" name="city" defaultvalue={`${profile[0].city}`} placeholder={`${profile[0].city}`} maxlength='100' size='100' onChange={onChange}/> </label>
+                <label> City: &nbsp;&nbsp;&nbsp;<input type="text" name="cityUpdate" defaultValue={city} placeholder={city} maxLength='100' size='100' onChange={onChange}/> </label>
                 <br></br>
                 <label> State: </label>
-                <select name="state" id="state" class='statedropdown' defaultvalue={state} placeholder={state}>
+                <select name="stateUpdate" id="stateUpdate" class='statedropdown' defaultValue={stateUpdate} placeholder={stateUpdate}>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -158,7 +140,7 @@ function ModifyProfileForm() {
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                 </select>
-                <label> Zipcode: <input type="text" name="zipcode" defaultvalue={`${profile[0].zipcode}`} placeholder={`${profile[0].zipcode}`} minlength='5' maxlength='9' size='9' onChange={onChange}/> </label>
+                <label> Zipcode: <input type="text" name="zipcodeUpdate" defaultValue={zipcode} placeholder={zipcode} minLength='5' maxLength='9' size='9' onChange={onChange}/> </label>
                 <br></br>
                 <input class="formbutton" type="submit" value="Submit" />
             </ div>
