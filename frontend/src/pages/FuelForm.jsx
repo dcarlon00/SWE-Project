@@ -3,18 +3,17 @@ import {Link} from 'react-router-dom'
 import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {useDispatch} from 'react-redux'
 //import {fuelForm} from '../modules/fuelForm'
-const fuelForm = require('../modules/fuelForm');
+const fuelFormModule = require('../modules/fuelForm');
 
 function FuelForm() {
-    var [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         gallons: '',
         date: '',
-        totalAmount: 5,
     })
 
-    const [selectedDate, setSelectedDate] = useState(null)
+    var [totalAmount, setTotalAmount] = useState()
 
-    var {gallons, date, totalAmount} = formData
+    var {gallons, date} = formData
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -35,9 +34,10 @@ function FuelForm() {
         }
         const data = e.target
         const [gallons, address, date, gallonPrice] = data
-        var output = fuelForm(gallons.value, address.value, date.value, gallonPrice.value)
+        var output = fuelFormModule(gallons.value, address.value, date.value, gallonPrice.value)
         totalAmount = output[4]
         console.log(totalAmount) // right now it does not update on the form
+        setTotalAmount(totalAmount)
     }
     
     return <>
@@ -76,7 +76,7 @@ function FuelForm() {
                     className='form-control' 
                     id="gallons" 
                     name="gallons"
-                    value={gallons} 
+                    value={gallons}
                     placeholder="(Required)" 
                     onChange={onChange}                  
                 />
