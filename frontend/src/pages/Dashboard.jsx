@@ -1,7 +1,6 @@
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import {FaLaptopHouse, FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import ProfileFinishForm from '../components/ProfileFinishForm'
 import {getProfile, reset} from '../features/profile/profileSlice'
@@ -54,7 +53,7 @@ function Dashboard() {
     <div>
         
         <header className="container2">
-            <h1>Welcome '{user && user.name}' to your Dashboard</h1>
+            <h1>Welcome '{profile[0].name}' to your Dashboard</h1>
             <h3>Below are your user functions.</h3>
         </header>
     {/* CHECK to see if user has completed dash. IF not force to complete dash. */}
