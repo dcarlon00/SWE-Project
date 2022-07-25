@@ -31,10 +31,6 @@ function FuelForm() {
             console.log(message);
         }
 
-        /*if(!user){
-            navigate('/Login') //should be /login
-        }*/
-
         dispatch(getProfile())
 
         return () =>{
@@ -46,8 +42,8 @@ function FuelForm() {
         galReq: '',
         delAdd: '',
         delDate: '',
-        ppGal: '',
-        total: '',
+        ppGal: 10,   //placeholders since Pricing module isn't implemeneted
+        total: 100,
     })
 
     if(isLoading){
@@ -133,28 +129,31 @@ function FuelForm() {
             <div className="form-group">
                 <label>Price Per Gallon:
                 <input 
+                    ReadOnly
                     type="number"
                     step='0.01'
                     className='form-control' 
                     id="ppGal" 
                     name="ppGal"
-                    placeholder='Gal.'       
-                    value={ppGal} onChange={onChange} 
+                    placeholder={ppGal}      
+                    value={ppGal} 
+                    //onChange={onChange}
                 />
                 </label>
             </div>
 
             <div className="form-group">
                 <label>Total Amount Due:
-                <input 
+                <input
+                    ReadOnly 
                     type="number"
                     step='0.01'
                     className='form-control' 
                     id="total" 
                     name="total"
-                    /* defaultValue='5.00' */
-                    value={total/* .value = gallons+ppg */} 
-                    onChange={onChange}         
+                    defaultValue={total}
+                    value={total} 
+                    //onChange={onChange}         
                 />
                 </label>
             </div>
