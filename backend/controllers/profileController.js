@@ -57,12 +57,18 @@ const updateProfile = asyncHandler(async(req, res) => {
         throw new Error('User not authorized')
     }
 
-    const updatedProfile = await Profile.findbyIdAndUpdate(req.params.id,
-        req.body.profileData, {
-            new: true
-        })
+    const updatedProfile = await Profile.findByIdAndUpdate(req.params.id,    
+        {
+            name: req.body.nameUpdate,
+            addressOne: req.body.addressOneUpdate,
+            addressTwo: req.body.addressTwoUpdate,
+            city: req.body.cityUpdate,
+            state: req.body.stateUpdate,
+            zipcode: req.body.zipcodeUpdate,
+        }
+        /*req.body, { new: true }*/)
 
-     res.status(200).json(updatedProfile)   
+     res.status(200).json(updatedProfile)
 })
 
 
@@ -93,4 +99,3 @@ const deleteProfile = asyncHandler(async(req, res) => {
 module.exports = {
     getProfile, setProfile, updateProfile, deleteProfile
 }
-
