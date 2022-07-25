@@ -8,8 +8,3 @@ function fuelForm(gallons, address, deliveryDate ,pricePerGallon)
     // Add forwarding for database on the next assignment
 }
 module.exports = fuelForm;
-
-
-
-
-

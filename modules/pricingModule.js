@@ -11,8 +11,3 @@ class pricing {
 }
 
 module.exports = fuelForm;
-
-
-
-
-
