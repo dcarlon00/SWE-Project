@@ -16,14 +16,14 @@ const createProfile = async (profileData, token) => {
 }
 
 // Update user profile
-const updateProfile = async (profileID, profileData, token) => {
+const updateProfile = async (profileId, profileData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   }
 
-  const response = await axios.put(API_URL + profileID, profileData, config)
+  const response = await axios.put(API_URL + profileId, profileData, config)
 
   return response.data
 }
