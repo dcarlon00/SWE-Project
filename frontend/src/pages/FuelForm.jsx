@@ -28,10 +28,12 @@ function FuelForm() {
         e.preventDefault()
 
         console.log(e.target.length,"elements were given by the form:")
+        /*
         for (var i = 0; i <= e.target.length - 2; i++) // the -2 prevents printing the 'total amount' and the button
         {
             console.log(e.target[i].value)
         }
+        */
         const data = e.target
         const [gallons, address, date, gallonPrice] = data
         var output = fuelFormModule(gallons.value, address.value, date.value, gallonPrice.value)

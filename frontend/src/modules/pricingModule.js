@@ -10,7 +10,7 @@ class pricing {
     }
 }
 
-module.exports = fuelForm;
+module.exports = pricingModule;
 
 
 
