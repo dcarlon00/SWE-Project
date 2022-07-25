@@ -36,9 +36,9 @@ function Dashboard() {
 
         dispatch(getProfile())
 
-        return () =>{
+        /*return () =>{
             dispatch(reset())
-        }
+        }*/
     }, [user, navigate, isError, message, dispatch]);
 
     if(isLoading){
