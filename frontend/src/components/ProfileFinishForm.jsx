@@ -32,15 +32,11 @@ function ProfileFinish() {
         zipcode: '',
     })
 
-    /* const[profileData, setProfileData] = useState('') */
 
     const {addressOne, addressTwo, city, /* state ,*/ zipcode} = profileData
     var name = `${user.name}`
-    var state = ''/* document.getElementById("state").value */
+    var state = ''
 
- /*    const{profile, isLoading, isError, isSuccess,message} = useSelector(
-        (state) => state.profile
-        ) */
 
     const onChange = (e) => {
         setProfileData((prevState) => ({
