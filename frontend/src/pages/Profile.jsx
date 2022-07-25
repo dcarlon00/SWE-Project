@@ -1,12 +1,7 @@
-import {useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+import {FaSignOutAlt} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import ProfileForm from '../components/ProfileForm'
 /* import { Button } from '@themesberg/react-bootstrap' */
-
-
 
 
 function Profile() {
@@ -28,19 +23,7 @@ function Profile() {
         </ul>
     </header>
     <ProfileForm />
-
-
-
     </>
-    
-
-
-/*     return <>
-        <section className="heading">
-            <h1>Welcome 'user's name'</h1>
-        </section>
-    
-    </> */
     
 }
 
