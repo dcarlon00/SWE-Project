@@ -15,9 +15,7 @@ function Profile() {
         <ul>
             <li>
                 <div class="btn-group">
-                    <button className="btn">
-                        <a href="/"> <FaSignOutAlt/> Logout </a>
-                    </button>
+                    
                 </div>
             </li>  
         </ul>
