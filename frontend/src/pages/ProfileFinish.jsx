@@ -35,29 +35,32 @@ function ProfileFinish() {
     if(isLoading){
         return <Spinner />
     }
-    
-    const profileData = {
-        userName: `${profile[0].name}`,
-        addressOne: `${profile[0].addressOne}`,
-        addressTwo: `${profile[0].addressTwo}`,
-        city: `${profile[0].city}`,
-        state: `${profile[0].state}`,
-        zipcode: `${profile[0].zipcode}`,
-        id: `${profile[0]._id}`,
+    if (profile[0] != null)
+    {
+        const profileData = {
+            userName: `${profile[0].name}`,
+            addressOne: `${profile[0].addressOne}`,
+            addressTwo: `${profile[0].addressTwo}`,
+            city: `${profile[0].city}`,
+            state: `${profile[0].state}`,
+            zipcode: `${profile[0].zipcode}`,
+            id: `${profile[0]._id}`,
+            }
+        return  (
+            <>
+                <ModifyProfileform 
+                    userName={profileData.userName} 
+                    addressOne={profileData.addressOne} 
+                    addressTwo={profileData.addressTwo} 
+                    city={profileData.city} 
+                    state={profileData.state} 
+                    zipcode={profileData.zipcode} 
+                    id={profileData.id}/>
+            </>
+            )
+        }
     }
     
-    return  (
-    <>
-        <ModifyProfileform 
-            userName={profileData.userName} 
-            addressOne={profileData.addressOne} 
-            addressTwo={profileData.addressTwo} 
-            city={profileData.city} 
-            state={profileData.state} 
-            zipcode={profileData.zipcode} 
-            id={profileData.id}/>
-    </>
-    )
-}
+    
 
 export default ProfileFinish

@@ -66,7 +66,7 @@ function ModifyProfileForm( {userName, addressOne, addressTwo, city, state, zipc
             return <Spinner />
         }
         SetProfileData('') 
-        navigate('/')
+        navigate('/Profile')
     }
 
     return (

@@ -34,7 +34,14 @@ function ProfileFinish() {
 
 
     const {addressOne, addressTwo, city, /* state ,*/ zipcode} = profileData
-    var name = `${user.name}`
+    if(user == null)
+    {
+        var name = ''
+    }  
+    else
+    {
+        var name = `${user.name}`
+    }  
     var state = ''
 
 

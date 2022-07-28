@@ -21,7 +21,7 @@ function FuelForm() {
         }
 
     }, [user, navigate])
-
+    
     const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
 
     //Allows us to access userData.
@@ -51,7 +51,11 @@ function FuelForm() {
     }
 
     const { galReq, delDate, ppGal, total} = formData
-    var delAdd = `${profile[0].addressOne}`
+    if (!profile)
+    {
+        var delAdd = `${profile[0].addressOne}`
+    }
+    
     
 
     const onChange = (e) => {
@@ -107,8 +111,8 @@ function FuelForm() {
                     className='form-control' 
                     id="delAdd" 
                     name="delAdd"
-                    /* value={delAdd} onChange={onChange} */
-                    defaultValue={delAdd}
+                    value={delAdd} onChange={onChange}
+                    //defaultValue={delAdd}
                     placeholder={delAdd}
                 />
                 </label>
@@ -129,7 +133,7 @@ function FuelForm() {
             <div className="form-group">
                 <label>Price Per Gallon:
                 <input 
-                    ReadOnly
+                    readOnly
                     type="number"
                     step='0.01'
                     className='form-control' 
@@ -151,7 +155,6 @@ function FuelForm() {
                     className='form-control' 
                     id="total" 
                     name="total"
-                    defaultValue={total}
                     value={total} 
                     //onChange={onChange}         
                 />
