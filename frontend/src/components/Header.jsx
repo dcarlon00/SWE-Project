@@ -18,55 +18,51 @@ function Header() {
 
     /* MAKE SURE TO CHANGE 'PROFILE' Button, to only show if dashComp === true */
 
-    const queryString = window.location.pathname;
-    console.log(queryString);
-    const urlParams = new URLSearchParams(queryString);
-    if (!(urlParams.has('/Profile') || urlParams.has('/Fuel')))
-    {
-        return (
-            <header className='header'>
-                <div className="logo">
-                    <Link to='/'>Fuel Application</Link>
-                </div>
-                <ul>
-                    {user ? (
-                        <>
-                         <li>
-                            <div className="btn-group">
-                                <Link to='/Profile'>
-                                    <button className="btn">
-                                        My Profile
-                                    </button>
-                                </Link>
-                            </div>
-                         </li>                  
-                         <li>
-                            <div className="btn-group">
-                            <button className="btn" onClick={onLogout}>
-                                <FaSignOutAlt/> Logout
-                            </button>
-                            </div>
-                        </li>
-                        </>
-                        ) : (
-                        <>
+    //const queryString = window.location.pathname;
+    //console.log(queryString);
+    //const urlParams = new URLSearchParams(queryString);
+    return (
+        <header className='header'>
+            <div className="logo">
+                <Link to='/'>Fuel Application</Link>
+            </div>
+            <ul>
+                {user ? (
+                    <>
                         <li>
-                            <Link to='/Login'>
-                                <FaSignInAlt/> Login
+                        <div className="btn-group">
+                            <Link to='/Profile'>
+                                <button className="btn">
+                                    My Profile
+                                </button>
                             </Link>
-                        </li>  
+                        </div>
+                        </li>                  
                         <li>
-                            <Link to='/Register'>
-                                <FaUser/> Register
-                            </Link>
-                        </li>
-                    </>)}
+                        <div className="btn-group">
+                        <button className="btn" onClick={onLogout}>
+                            <FaSignOutAlt/> Logout
+                        </button>
+                        </div>
+                    </li>
+                    </>
+                    ) : (
+                    <>
+                    <li>
+                        <Link to='/Login'>
+                            <FaSignInAlt/> Login
+                        </Link>
+                    </li>  
+                    <li>
+                        <Link to='/Register'>
+                            <FaUser/> Register
+                        </Link>
+                    </li>
+                </>)}
 
-                </ul>
-            </header>
-            )
-    }
- 
+            </ul>
+        </header>
+        )
 }
 
 export default Header
