@@ -16,9 +16,7 @@ const profileSchema = mongoose.Schema(
         required: [true,'Please add an address'],
     },
     addressTwo: {
-        type: String,
-        required: false,
-        default: '',
+        type: String
     },
     city: {
         type: String,

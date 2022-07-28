@@ -28,6 +28,24 @@ export const createProfile = createAsyncThunk(
   }
 )
 
+export const updateProfile = createAsyncThunk(
+  'profile/update',
+  async (arg, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await profileService.updateProfile(arg.id, arg.profileData, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 // Get user profile
 export const getProfile = createAsyncThunk(
   'profile/getAll',
@@ -65,7 +83,7 @@ export const deleteProfile = createAsyncThunk(
     }
   }
 )
-/* Changes made 07/15 */
+
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
@@ -83,6 +101,19 @@ export const profileSlice = createSlice({
         state.profile.push(action.payload)
       })
       .addCase(createProfile.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.profile[0] = action.payload
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
