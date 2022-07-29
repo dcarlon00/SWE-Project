@@ -50,8 +50,9 @@ function FuelForm() {
         return <Spinner />
     }
 
-    const { galReq, delDate, ppGal, total} = formData
-    if (!profile)
+    const {galReq, delDate, ppGal, total} = formData
+    
+    if (profile[0])
     {
         var delAdd = `${profile[0].addressOne}`
     }
@@ -112,7 +113,7 @@ function FuelForm() {
                     id="delAdd" 
                     name="delAdd"
                     value={delAdd} onChange={onChange}
-                    //defaultValue={delAdd}
+                    defaultValue={delAdd}
                     placeholder={delAdd}
                 />
                 </label>
