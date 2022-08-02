@@ -165,6 +165,23 @@ h3 {
 /*   border-right: none; */
 }
 
+.btn[disabled] {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: rgb(133, 133, 133);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+/*   border-right: none; */
+}
+
 .btn svg {
   margin-right: 8px;
 }
@@ -181,6 +198,10 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+}
+
+.btn:hover[disabled] {
+  transform: scale(1);
 }
 
 .loadingSpinnerContainer {
