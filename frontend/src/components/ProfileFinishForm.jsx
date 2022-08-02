@@ -34,7 +34,14 @@ function ProfileFinish() {
 
 
     const {addressOne, addressTwo, city, /* state ,*/ zipcode} = profileData
-    var name = `${user.name}`
+    if(user == null)
+    {
+        var name = ''
+    }  
+    else
+    {
+        var name = `${user.name}`
+    }  
     var state = ''
 
 
@@ -137,7 +144,7 @@ function ProfileFinish() {
                 <select 
                 name="state"
                 id="state" 
-                class='statedropdown'>
+                className='statedropdown'>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
