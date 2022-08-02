@@ -1,30 +1,21 @@
-
+import React from 'react'
 import { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {createForm, reset} from '../features/forms/formSlice'
 import Spinner from '../components/Spinner'
+import Pricing from '../components/Pricing'
 import {getProfile} from '../features/profile/profileSlice'
 
 
 
-function FuelForm() {
+function FuelForm({formLength}) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
 
     const {user} = useSelector((state) => state.auth) 
-
-    useEffect(() => {
-        if(!user){
-            navigate('/Login') //should be /login
-        }
-
-    }, [user, navigate])
-
     const {profile, isLoading, isError, message} = useSelector((state) => state.profile)
-
-    //Allows us to access userData.
 
     useEffect(() => {
         if(isError){
@@ -42,24 +33,44 @@ function FuelForm() {
         galReq: '',
         delAdd: '',
         delDate: '',
-        ppGal: 10,   //placeholders since Pricing module isn't implemeneted
-        total: 100,
+        ppGal: '',   //placeholders since Pricing module isn't implemeneted
+        total: '',
     })
+
+    const [submitDisable, setsubmitDisable] = React.useState(true);
 
     if(isLoading){
         return <Spinner />
     }
 
-    const { galReq, delDate, ppGal, total} = formData
-    var delAdd = `${profile[0].addressOne}`
+    const {galReq, delDate, ppGal, total} = formData
     
-
+    if (profile[0])
+    {
+        var delAdd = `${profile[0].addressOne}`
+    }
+    
     const onChange = (e) => {
         setFormData((prevState) => ({
           ...prevState,
           [e.target.name]: e.target.value,
         }))
+
       }
+
+    const handleGetQuoteClick = (e) => {
+        e.preventDefault()
+        
+        var priceReport = Pricing(galReq, profile[0].state, formLength)
+        setFormData((prevState) => ({
+            ...prevState,
+            ppGal: priceReport.ppGal,
+            total: priceReport.roundedTotal,
+        }))
+
+        setsubmitDisable(false)
+
+    }
 
     const onSubmit = e => {
         e.preventDefault()
@@ -94,7 +105,7 @@ function FuelForm() {
                     className='form-control' 
                     id="galReq" 
                     name="galReq"
-                    value={galReq} onChange={onChange}
+                    defaultValue={galReq} onChange={onChange}
                     placeholder="(Required)"        
                 />
                 </label>
@@ -107,7 +118,7 @@ function FuelForm() {
                     className='form-control' 
                     id="delAdd" 
                     name="delAdd"
-                    /* value={delAdd} onChange={onChange} */
+                    //value={delAdd}
                     defaultValue={delAdd}
                     placeholder={delAdd}
                 />
@@ -121,7 +132,7 @@ function FuelForm() {
                     className='form-control' 
                     id="delDate" 
                     name="delDate"
-                    value={delDate} onChange={onChange}
+                    defaultValue={delDate} onChange={onChange}
                 />
                 </label>
             </div>
@@ -129,14 +140,15 @@ function FuelForm() {
             <div className="form-group">
                 <label>Price Per Gallon:
                 <input 
-                    ReadOnly
+                    readOnly
                     type="number"
                     step='0.01'
                     className='form-control' 
                     id="ppGal" 
                     name="ppGal"
-                    placeholder={ppGal}      
-                    value={ppGal} 
+                    placeholder='(Get Quote to see Price Per Gallon)'      
+                    //value={ppGal}
+                    defaultValue={ppGal} 
                     //onChange={onChange}
                 />
                 </label>
@@ -145,21 +157,28 @@ function FuelForm() {
             <div className="form-group">
                 <label>Total Amount Due:
                 <input
-                    ReadOnly 
+                    readOnly 
                     type="number"
                     step='0.01'
                     className='form-control' 
                     id="total" 
                     name="total"
-                    defaultValue={total}
-                    value={total} 
+                    placeholder='(Get Quote to see Total Ammount Due)' 
+                    //value={total}
+                    defaultValue={total}  
                     //onChange={onChange}         
                 />
                 </label>
             </div>
 
             <div className="form-group">
-                <button type="submit" className="btn btn-block">
+                <button type='button' className="btn btn-block" disabled={galReq == '' || delDate == ''} onClick={handleGetQuoteClick}>
+                    Get Quote
+                </button>
+            </div>
+            
+            <div className="form-group">
+                <button type="submit" className="btn btn-block" disabled={submitDisable}>
                     Submit Quote
                 </button>
             </div>
