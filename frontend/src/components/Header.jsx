@@ -29,7 +29,7 @@ function Header() {
             <ul>
                 {user ? (
                     <>
-                        <li>
+                    <li>
                         <div className="btn-group">
                             <Link to='/Profile'>
                                 <button className="btn">
@@ -37,8 +37,8 @@ function Header() {
                                 </button>
                             </Link>
                         </div>
-                        </li>                  
-                        <li>
+                    </li>                  
+                    <li>
                         <div className="btn-group">
                         <button className="btn" onClick={onLogout}>
                             <FaSignOutAlt/> Logout
