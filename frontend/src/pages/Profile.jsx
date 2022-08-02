@@ -9,12 +9,12 @@ function Profile() {
     return <>
     
     <header className='header'>
-        <div class="btn-group">
+        <div className="btn-group">
              <Link to='/'> <button><a>Return to Dashboard</a> </button></Link> 
         </div>
         <ul>
             <li>
-                <div class="btn-group">
+                <div className="btn-group">
                     
                 </div>
             </li>  
