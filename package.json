@@ -34,7 +34,8 @@
     "mongoose": "^6.5.0",
     "prop-types": "^15.8.1",
     "react-datepicker": "^4.8.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "webpack-dev-server": "^4.9.3"
   },
   "devDependencies": {
     "concurrently": "^7.3.0",
