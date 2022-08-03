@@ -119,13 +119,9 @@ function Register() {
                 />
             </div>
             <div className="form-group">
-                {/* <Link to='/ProfileFinish?newuser'> */}
-                {/* <Link to='/'> */}
                     <button type="submit" className="btn btn-block">
                         Submit
-                    </button>
-                {/* </Link> */}
-                
+                    </button>               
             </div>
 
         </form>

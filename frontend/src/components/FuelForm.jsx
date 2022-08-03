@@ -82,11 +82,6 @@ function FuelForm() {
         navigate('/FuelQuoteHistory')
     }
     
-
-    /*if(isLoading){
-        return <Spinner />
-    }*/
-
     
   return (
     <>
