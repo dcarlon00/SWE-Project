@@ -135,6 +135,7 @@ function FuelForm({formLength}) {
                     id="delDate" 
                     name="delDate"
                     defaultValue={delDate} onChange={onChange}
+                    min={new Date().toISOString().split('T')[0]}
                 />
                 </label>
             </div>
@@ -165,7 +166,7 @@ function FuelForm({formLength}) {
                     className='form-control' 
                     id="total" 
                     name="total"
-                    placeholder='(Get Quote to see Total Ammount Due)' 
+                    placeholder='(Get Quote to see Total Amount Due)' 
                     //value={total}
                     defaultValue={total}  
                     //onChange={onChange}         
@@ -174,7 +175,7 @@ function FuelForm({formLength}) {
             </div>
 
             <div className="form-group">
-                <button type='button' className="btn btn-block" disabled={galReq == '' || delDate == ''} onClick={handleGetQuoteClick}>
+                <button type='button' className="btn btn-block" disabled={galReq === '' || delDate === ''} onClick={handleGetQuoteClick}>
                     Get Quote
                 </button>
             </div>

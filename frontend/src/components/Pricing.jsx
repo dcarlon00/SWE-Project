@@ -7,9 +7,7 @@ function Pricing(numGallons, delState, formLength) {
     var margin   
     var ppGal
 
-    console.log(formLength)
-
-    if (delState == "TX") {
+    if (delState === "TX") {
         locationFactor = .02
     } else {
         locationFactor = .04
