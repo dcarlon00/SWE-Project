@@ -120,9 +120,7 @@ function FuelForm({formLength}) {
                     className='form-control' 
                     id="delAdd" 
                     name="delAdd"
-                    //value={delAdd}
                     defaultValue={delAdd}
-                    placeholder={delAdd}
                 />
                 </label>
             </div>
@@ -149,10 +147,8 @@ function FuelForm({formLength}) {
                     className='form-control' 
                     id="ppGal" 
                     name="ppGal"
-                    placeholder='(Get Quote to see Price Per Gallon)'      
-                    //value={ppGal}
+                    placeholder="(Get Quote to see Price Per Gallon)"      
                     defaultValue={ppGal} 
-                    //onChange={onChange}
                 />
                 </label>
             </div>
@@ -167,9 +163,7 @@ function FuelForm({formLength}) {
                     id="total" 
                     name="total"
                     placeholder='(Get Quote to see Total Amount Due)' 
-                    //value={total}
-                    defaultValue={total}  
-                    //onChange={onChange}         
+                    defaultValue={total}        
                 />
                 </label>
             </div>
