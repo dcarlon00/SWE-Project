@@ -68,7 +68,6 @@ function Dashboard() {
             <Link to ="/FuelQuoteHistory">
                 <button style={{width:`33.3%`}}>View Fuel Quote History</button>
             </Link>
-            <button style={{width:`33.3%`}}>Function 3</button>
         </div>
     </header>
     </>) 
