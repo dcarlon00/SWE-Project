@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 //import {createForm, reset} from '../features/forms/formSlice'
 import Spinner from '../components/Spinner'
 import {getProfile, updateProfile, reset} from '../features/profile/profileSlice'
+import {Link} from 'react-router-dom'
 
 
 
@@ -71,11 +72,27 @@ function ModifyProfileForm( {userName, addressOne, addressTwo, city, state, zipc
 
     return (
     <>
+    <header className='header'>
+        <div className="logo">
+            <ul>
+                <li>
+                    <div class="btn-group">
+                        <Link to='/'>
+                            <button className="btn">
+                                Return to Dashboard
+                            </button>
+                        </Link>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
     
-    <h1>{userName}'s Profile Management</h1>
-    <p id='message'></p>
-    <br></br>
+
     <header className='container profileform'>
+        <h1>{userName}'s Profile Management</h1>
+        <p id='message'></p>
+        <br></br>
         <form onSubmit={onSubmit}>
             <div class="btn-group" style={{width:`100%`, textAlign:'left'}}>
                 <label> Full Name: <input type="text" name="nameUpdate" defaultValue={userName} placeholder={userName} maxLength='50' size='50' onChange={onChange}/> </label>
