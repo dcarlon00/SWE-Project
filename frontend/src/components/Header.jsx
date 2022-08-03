@@ -16,11 +16,7 @@ function Header() {
         navigate('/')
     }
 
-    /* MAKE SURE TO CHANGE 'PROFILE' Button, to only show if dashComp === true */
-
-    //const queryString = window.location.pathname;
-    //console.log(queryString);
-    //const urlParams = new URLSearchParams(queryString);
+    //if statement that shows the user a different header if they are logged in and logged out.
     return (
         <header className='header'>
             <div className="logo">

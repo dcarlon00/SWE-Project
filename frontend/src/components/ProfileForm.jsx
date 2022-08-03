@@ -45,7 +45,7 @@ if(profile[0] != null)
         <>
         <header className='container profile'>
             <h1>{profile[0].name}'s Profile Page</h1>
-            <p>Below is your current profile information:</p> 
+            <h3>Below is your current profile information:</h3> 
             <br></br>
             <div class="btn-group" style={{width:`100%`, textAlign:'left' }}> 
                 <form>

@@ -5,7 +5,6 @@ import ModifyProfileform from '../components/ModifyProfileForm'
 import Spinner from '../components/Spinner'
 import {getProfile} from '../features/profile/profileSlice'
 
-/* import { Button } from '@themesberg/react-bootstrap' */
 
 function ProfileFinish() {
     const dispatch = useDispatch()
@@ -35,6 +34,7 @@ function ProfileFinish() {
     if(isLoading){
         return <Spinner />
     }
+
     if (profile[0] != null)
     {
         const profileData = {

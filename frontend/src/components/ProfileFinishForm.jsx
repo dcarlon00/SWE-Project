@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 import $ from 'jquery';
 import {createProfile, reset} from '../features/profile/profileSlice'
 
-/* import { Button } from '@themesberg/react-bootstrap' */
 
 function ProfileFinish() {
     const navigate = useNavigate()
@@ -130,16 +129,6 @@ function ProfileFinish() {
                 </label>
             </div>
             <div className="form-group">
-{/*                 <label> State:
-                <input
-                    type="text"
-                    className='form-control' 
-                    id="state" 
-                    name="state"
-                    value={state} onChange={onChange}
-                    placeholder="(Required)"        
-                />
-                </label> */}
                 <label> State: </label>
                 <select 
                 name="state"
