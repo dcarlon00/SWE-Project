@@ -56,6 +56,8 @@ function FuelForm({formLength}) {
           [e.target.name]: e.target.value,
         }))
 
+        setsubmitDisable(true)
+
       }
 
     const handleGetQuoteClick = (e) => {
