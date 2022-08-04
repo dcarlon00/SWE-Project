@@ -1,21 +1,24 @@
 > jest "--coverage"
 
- PASS  frontend/src/modules/profileManagement.test.js
- PASS  frontend/src/modules/fuelForm.test.js
- PASS  modules/loginModule.test.js
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
------------------------|---------|----------|---------|---------|-------------------
-All files              |     100 |       50 |     100 |     100 |
- frontend/src/modules  |     100 |       50 |     100 |     100 |
-  fuelForm.js          |     100 |       50 |     100 |     100 | 4
-  profileManagement.js |     100 |       50 |     100 |     100 | 3
- modules               |     100 |      100 |     100 |     100 |
-  loginModule.js       |     100 |      100 |     100 |     100 |
------------------------|---------|----------|---------|---------|-------------------
+ PASS  frontend/src/modules-test/Pricing.test.js
+ PASS  frontend/src/modules-test/fuelFormTest.test.js
+ PASS  frontend/src/modules-test/profileManagement.test.js
+ PASS  modules-test/loginModule.test.js
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |   88.46 |       50 |     100 |   88.46 |
+ frontend/src/components   |   82.35 |       50 |     100 |   82.35 |
+  Pricing.jsx              |   82.35 |       50 |     100 |   82.35 | 13,19,23
+ frontend/src/modules-test |     100 |       50 |     100 |     100 |
+  fuelFormTest.js          |     100 |       50 |     100 |     100 | 3
+  profileManagement.js     |     100 |       50 |     100 |     100 | 3
+ modules-test              |     100 |      100 |     100 |     100 |
+  loginModule.js           |     100 |      100 |     100 |     100 |
+---------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 3 passed, 3 total
-Tests:       3 passed, 3 total
+Test Suites: 4 passed, 4 total
+Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        4.426 s, estimated 5 s
+Time:        9.116 s
 Ran all test suites.
