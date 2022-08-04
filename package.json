@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Project SWE 2022 Summer",
   "main": "server.js",
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ]
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",

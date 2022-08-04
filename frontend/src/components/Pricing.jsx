@@ -39,4 +39,5 @@ function Pricing(numGallons, delState, formLength) {
     )
 }
 
-export default Pricing
+module.exports = Pricing;
+//export default Pricing
