@@ -17,6 +17,14 @@ app.use('/api/forms', require('./routes/formRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/profile', require('./routes/profileRoutes'))
 
+// Serve frontend
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend','builf','index.html')))
+} else {
+    app.get('/', (req, res) => res.send('Set Build To Production'))
+}
 
 app.use(errorHandler)
 
