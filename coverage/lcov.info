@@ -1,5 +1,5 @@
 TN:
-SF:frontend\src\modules\fuelForm.js
+SF:frontend\src\modules-test\fuelForm.js
 FN:1,fuelForm
 FNF:1
 FNH:1
@@ -16,7 +16,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:frontend\src\modules\profileManagement.js
+SF:frontend\src\modules-test\profileManagement.js
 FN:1,profileManagement
 FNF:1
 FNH:1
@@ -32,14 +32,14 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:modules\loginModule.js
-FN:4,(anonymous_0)
+SF:modules-test\loginModule.js
+FN:3,(anonymous_0)
 FNF:1
 FNH:1
 FNDA:1,(anonymous_0)
+DA:3,1
 DA:4,1
-DA:5,1
-DA:9,1
+DA:8,1
 LF:3
 LH:3
 BRF:0
