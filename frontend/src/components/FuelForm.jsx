@@ -110,7 +110,8 @@ function FuelForm({formLength}) {
                     id="galReq" 
                     name="galReq"
                     defaultValue={galReq} onChange={onChange}
-                    placeholder="(Required)"        
+                    placeholder="(Required)"
+                    min="0"      
                 />
                 </label>
             </div>
