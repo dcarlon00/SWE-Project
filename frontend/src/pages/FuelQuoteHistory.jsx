@@ -22,7 +22,7 @@ function FuelQuoteHist() {
 
 
         if(!user) {
-            navigate('/login')
+            navigate('/Login')
         }
 
         dispatch(getForms())

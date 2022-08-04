@@ -31,7 +31,7 @@ function Dashboard() {
 
 
         if(!user) {
-            navigate('/login')
+            navigate('/Login')
         }
 
         dispatch(getProfile())

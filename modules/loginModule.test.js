@@ -1,4 +1,3 @@
-// provitional test for already completed login system
 import axios from 'axios';
 import client from './loginModule.js';
 
