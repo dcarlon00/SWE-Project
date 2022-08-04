@@ -32,7 +32,7 @@ function ProfileFinish() {
     })
 
 
-    const {addressOne, addressTwo, city, /* state ,*/ zipcode} = profileData
+    const {addressOne, addressTwo, city, zipcode} = profileData
     if(user == null)
     {
         var name = ''
