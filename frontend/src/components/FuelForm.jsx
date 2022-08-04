@@ -92,7 +92,7 @@ function FuelForm({formLength}) {
         navigate('/FuelQuoteHistory')
     }
     
-
+    
     /*if(isLoading){
         return <Spinner />
     }*/
@@ -110,7 +110,7 @@ function FuelForm({formLength}) {
                     id="galReq" 
                     name="galReq"
                     defaultValue={galReq} onChange={onChange}
-                    placeholder="(Required)"
+                    placeholder="(Required)"        
                     min="0"      
                 />
                 </label>
@@ -166,7 +166,7 @@ function FuelForm({formLength}) {
                     id="total" 
                     name="total"
                     placeholder='(Get Quote to see Total Amount Due)' 
-                    defaultValue={total}        
+                    defaultValue={total}  
                 />
                 </label>
             </div>
