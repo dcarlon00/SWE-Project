@@ -1,4 +1,3 @@
-// provitional module for already completed login system
 import axios from 'axios';
 
 const createRequest = async (url, method) => {

@@ -76,7 +76,6 @@ function ProfileFinish() {
     <h1>Hello '{name}' Please Complete Profile</h1>
     <p id='message'></p>
     <br></br>
-    {/* <div>{newerName}</div> */}
     <section className="form">
         <form onSubmit={onSubmit}>
         <div className="form-group">
