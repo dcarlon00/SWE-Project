@@ -4,6 +4,5 @@ function profileManagement(name, address, address2 ,city, state, zipcode)
     {
         return [name, address, address2, city, state, zipcode];
     }
-    // Add forwarding for database on the next assignment
 }
 module.exports = profileManagement;

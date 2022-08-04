@@ -5,6 +5,7 @@ import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import $ from 'jquery';
 import {createProfile, reset} from '../features/profile/profileSlice'
+const profileManagement = require('../modules-test/profileManagement');
 
 
 function ProfileFinish() {
@@ -66,6 +67,7 @@ function ProfileFinish() {
             state,
             zipcode,
         }  
+        profileManagement(profileData)
         dispatch(createProfile({profileData})) 
         setProfileData('')
     }

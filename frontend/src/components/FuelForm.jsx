@@ -6,6 +6,7 @@ import {createForm, reset} from '../features/forms/formSlice'
 import Spinner from '../components/Spinner'
 import Pricing from '../components/Pricing'
 import {getProfile} from '../features/profile/profileSlice'
+const fuelFormTest = require('../modules-test/fuelFormTest');
 
 
 
@@ -63,6 +64,7 @@ function FuelForm({formLength}) {
     const handleGetQuoteClick = (e) => {
         e.preventDefault()
         
+        fuelFormTest(formData)
         var priceReport = Pricing(galReq, profile[0].state, formLength)
         setFormData((prevState) => ({
             ...prevState,

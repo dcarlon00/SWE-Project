@@ -33,11 +33,11 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:frontend\src\modules-test\fuelForm.js
-FN:1,fuelForm
+SF:frontend\src\modules-test\fuelFormTest.js
+FN:1,fuelFormTest
 FNF:1
 FNH:1
-FNDA:1,fuelForm
+FNDA:1,fuelFormTest
 DA:3,1
 DA:5,1
 DA:8,1
@@ -56,7 +56,7 @@ FNH:1
 FNDA:1,profileManagement
 DA:3,1
 DA:5,1
-DA:9,1
+DA:8,1
 LF:3
 LH:3
 BRDA:3,0,0,1
