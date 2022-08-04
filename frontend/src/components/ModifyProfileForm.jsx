@@ -59,7 +59,7 @@ function ModifyProfileForm( {userName, addressOne, addressTwo, city, state, zipc
             stateUpdate,
             zipcodeUpdate,
         }
-        console.log(profileData)
+        //console.log(profileData)
         
         dispatch(updateProfile({id, profileData}))
         if(isLoading){
